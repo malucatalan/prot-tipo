@@ -85,7 +85,7 @@ def conteudos_exercicios(tema, idade):
         if opcao == "1":
             mostrar_conteudo(tema, idade)
         elif opcao == "2":
-            menu_exercicios(tema, idade) 
+            mostrar_exercicios(tema, idade) 
         elif opcao == "0":
             break
         else:
@@ -194,8 +194,6 @@ CONTEUDOS = {
     "informatica": {}
 }
 
-
-# --- FUNÇÕES DE EXIBIÇÃO ---
 def mostrar_conteudo_detalhado(tema, idade, conteudo):
     dados = CONTEUDOS[tema][idade][conteudo]
     
@@ -209,7 +207,6 @@ def mostrar_conteudo(tema, idade):
     while True:
         mostrar_titulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
         
-        # Lista todos os conteúdos disponíveis
         for i, conteudo in enumerate(CONTEUDOS[tema][idade].keys(), 1):
             print(colorir(f"{i}. {conteudo}", cor="cyan"))
         
