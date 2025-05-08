@@ -80,6 +80,7 @@ def conteudos_exercicios(tema, idade):
         print(colorir("2. Praticar Exercícios", cor="yellow"))
         print(colorir("0. Voltar", cor="red"))
         
+        
         opcao = input(colorir("\nEscolha: ", cor="cyan"))
         
         if opcao == "1":
@@ -237,7 +238,7 @@ def menu_exercicios(tema, idade):
         
         if opcao == "0":
             break
-        elif opcao.isdigit() and 0 < int(opcao) <= len(conteudos):
+        elif opcao.isdigit() and 0 < (int(opcao) <= len(conteudos)):
             conteudo = list(conteudos.keys())[int(opcao)-1]
             if "exercicios" in conteudos[conteudo]:
                 mostrar_exercicios(tema, idade, conteudo)
@@ -258,17 +259,36 @@ def mostrar_exercicios(tema, idade, conteudo_selecionado=None):
     
     print(colorir(f"EXERCÍCIOS: {conteudo_selecionado.upper()}", cor="green", estilo="bold"))
     print(colorir("=" * 50, cor="magenta"))
-    
+
+    quantidade_acertos = 0
+    quantidade_erros = 0
     for i, exercicio in enumerate(exercicios, 1):
         print(colorir(f"\nExercício {i}: {exercicio['pergunta']}", cor="yellow"))
         resposta = input(colorir("Sua resposta: ", cor="cyan"))
         
         if resposta == exercicio["resposta"]:
             print(colorir("Correto!", cor="green"))
+            quantidade_acertos += 1 
         else:
+            quantidade_erros += 1
             print(colorir(f"Errado. Resposta: {exercicio['resposta']}", cor="red"))
         
         time.sleep(1)
+
+    
+    #Exibir quantidade acertos---
+    time.sleep(1)
+    limpar_tela()
+    if quantidade_acertos > 0:
+        if quantidade_erros == 0:
+            print(colorir("Parabéns! Você acertou todas as repostas.", fundo="bg_green"))
+        print(colorir(f"Repostas corretas: {quantidade_acertos}", cor="green"))
+    if quantidade_erros > 0:
+        if quantidade_acertos == 0:
+            print(colorir("Estude mais, amigo.", cor="red", fundo="bg_red"))
+        print(colorir(f"Respostas incorretas: {quantidade_erros}", cor="red"))
+
+    
     
     input(colorir("\nPressione Enter para voltar...", cor="yellow"))
 menu_principal()
