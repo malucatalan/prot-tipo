@@ -277,7 +277,7 @@ def mostrar_exercicios(tema, idade, conteudo_selecionado=None):
 
     
     #Exibir quantidade acertos---
-    time.sleep(0.9)
+    time.sleep(0.8)
     limpar_tela()
     if quantidade_acertos > 0:
         if quantidade_erros == 0:
