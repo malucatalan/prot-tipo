@@ -1,20 +1,21 @@
 from cores import colorir
 import os
 import time
+import random
 
-def limpar_tela():
+def limparTela():
     os.system('cls')
  
-def mostrar_titulo(texto):
-    limpar_tela()
-    print(colorir("=" * 50, cor="magenta"))
+def mostrarTitulo(texto):
+    limparTela()
+    print(colorir("-" * 50, cor="magenta"))
     print(colorir(texto.center(50), cor="magenta", estilo="bold"))
-    print(colorir("=" * 50, cor="magenta"))
+    print(colorir("-" * 50, cor="magenta"))
     print()
 
-def menu_principal():
+def menuPrincipal():
     while True:
-        mostrar_titulo("SISTEMA DE APRENDIZADO INFANTIL")
+        mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
         print(colorir("1. Matemática", cor="blue"))
         print(colorir("2. Informática", cor="green"))
         print()
@@ -28,18 +29,18 @@ def menu_principal():
             print(colorir("Até logo! Volte sempre.", cor="red"))
             break
         elif opcao == "1":
-            menu_matematica()
+            menuMatematica()
         elif opcao == "2":
-            menu_informatica()
+            menuInformatica()
         elif opcao == "3":
-            sobre_sistema()
+            sobreSistema()
         else:
             print(colorir("Opção inválida! Tente novamente.", cor="red"))
             time.sleep(1)
         
-def menu_idades(titulo):
+def menuIdades(titulo):
     while True:
-        mostrar_titulo(titulo)
+        mostrarTitulo(titulo)
         print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
         print(colorir("1. 5-6 anos", cor="green"))
         print(colorir("2. 7-8 anos", cor="yellow"))
@@ -49,43 +50,43 @@ def menu_idades(titulo):
         print()
         return input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
     
-def menu_matematica():
+def menuMatematica():
     while True:
-        opcao = menu_idades("MATEMÁTICA DIVERTIDA")
+        opcao = menuIdades("MATEMÁTICA DIVERTIDA")
         if opcao == "1":
-            conteudos_exercicios("matematica", "5-6")
+            menuConteudosExercicios("matematica", "5-6")
         elif opcao == "2":
-            conteudos_exercicios("matematica", "7-8")
+            menuConteudosExercicios("matematica", "7-8")
         elif opcao == "3":
-            conteudos_exercicios("matematica", "9-10")
+            menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             break
 
-def menu_informatica():
+def menuInformatica():
     while True:
-        opcao = menu_idades("INFORMÁTICA DIVERTIDA")
+        opcao = menuIdades("INFORMÁTICA DIVERTIDA")
         if opcao == "1":
-            conteudos_exercicios("informatica", "5-6")
+            menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
-            conteudos_exercicios("informatica", "7-8")
+            menuConteudosExercicios("informatica", "7-8")
         elif opcao == "3":
-            conteudos_exercicios("informatica", "9-10")
+            menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             break
 
-def conteudos_exercicios(tema, idade):
+def menuConteudosExercicios(tema, idade):
    while True:
-        mostrar_titulo(f"{tema.upper()} PARA {idade} ANOS")
+        mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
         print(colorir("1. Ver Conteúdos", cor="green"))
         print(colorir("2. Praticar Exercícios", cor="yellow"))
         print(colorir("0. Voltar", cor="red"))
         
-        opcao = input(colorir("\nEscolha: ", cor="cyan"))
+        opcao = input(colorir("Escolha uma opção (0-2): ", cor="cyan"))
         
         if opcao == "1":
-            mostrar_conteudo(tema, idade)
+            verConteudos(tema, idade)
         elif opcao == "2":
-            mostrar_exercicios(tema, idade) 
+            praticarExercicios(tema, idade) 
         elif opcao == "0":
             break
         else:
@@ -96,19 +97,27 @@ CONTEUDOS = {
     "matematica": {
         "5-6": {
             "Números de 1 a 50": {
-                "texto": "Vamos aprender os números de 1 a 50!\n\n1 - Um\n2 - Dois\n3 - Três\n...\n10 - Dez",
+                                "texto": "\n".join(
+                    "  ".join(f"{n:>5}" for n in linha) 
+                    for linha in zip(
+                        range(1, 11),
+                        range(11, 21),
+                        range(21, 31),
+                        range(31, 41),
+                        range(41, 51)
+                    )
+                ),
                 "exercicios": [
                     {
-                        "pergunta": "Conte quantos animais aparecen: 🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱",
-                        "resposta": "16"
+                        "pergunta": "Conte quantos animais aparecen: 🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱",
+                        "resposta": "22"
                     },
                     {
-                        "pergunta": "Quantos dedos há em uma mão?",
+                        "pergunta": "Conte quantos dedos há em uma mão",
                         "resposta": "5"
                     }
                 ],
                 },
-            },
             "Formas básicas": {
                 "texto": "Formas geométricas básicas:\n\nTriângulo - 3 lados\nQuadrado - 4 lados iguais\nCírculo - Sem cantos",
                 "exercicios": [
@@ -177,79 +186,129 @@ CONTEUDOS = {
                 ]
             },
             "Formas planas e cilíndricas": {
-                "texto": "Vamos aprender os tipos diferentes de formas geométricas"
+                "texto": "Vamos aprender os tipos diferentes de formas geométricas",
+                "exercicios": [
+                    {
+                        "pergunta": "pergunta 1",
+                        "resposta": "resposta1"
+                    },
+                    {
+                        "pergunta": "pergunta 2",
+                        "resposta": "resposta 2"
+                    }
+                ]
             }
         },
         "9-10": {
             "Tabuada e multiplicação simples": {
-                "texto": "Vamos aprender a tabuada"
+                "texto": "Vamos aprender a tabuada",
+                "exercicios": [
+                    {
+                        "pergunta": "pergunta 1",
+                        "resposta": "resposta 1"
+                    }
+                ]
             },
             "Divisão simples": {
-                "texto": "Vamos aprender como fazer divisões"
+                "texto": "Vamos aprender como fazer divisões",
+                "exercicios": [
+                    {
+                        "pergunta": "pergunta 1",
+                        "resposta": "resposta 1"
+                    }
+                ]
             },
             "Números decimais": {
-                "texto": "Vamos aprender como funcionam os números decimais"
+                "texto": "Vamos aprender como funcionam os números decimais",
+                "exercicios": [
+                    {
+                        "pergunta": "pergunta 1",
+                        "resposta": "resposta 1"
+                    }
+                ]
             }
         },
-    "informatica": {}
+    },
+    "informatica": {
+        "5-6": {
+            "Partes do Computador": {
+                "texto": "Principais componentes",
+                "exercicios": [ 
+                    {
+                        "pergunta": "Pergunta 1",
+                        "resposta": "Resposta 1"
+                    }
+                ]
+            }
+        }
+    } 
 }
 
-def mostrar_conteudo_detalhado(tema, idade, conteudo):
-    dados = CONTEUDOS[tema][idade][conteudo]
+def conteudoCompleto(tema, idade, conteudo):
+    dadosConteudo = CONTEUDOS[tema][idade][conteudo]
     
-    limpar_tela()
+    limparTela()
     print(colorir(f"{conteudo.upper()}", cor="blue", estilo="bold"))
-    print(colorir("=" * 50, cor="magenta"))
-    print(dados["texto"])
-    input(colorir("\nPressione Enter para voltar...", cor="yellow"))
+    print(colorir("-" * 50, cor="magenta"))
+    print(dadosConteudo["texto"])
+    print()
+    input(colorir("Pressione Enter para voltar", cor="yellow"))
 
-def mostrar_conteudo(tema, idade):
+def verConteudos(tema, idade):
     while True:
-        mostrar_titulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
+        mostrarTitulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
+        conteudos = list(CONTEUDOS[tema][idade].items())
         
-        for i, conteudo in enumerate(CONTEUDOS[tema][idade].keys(), 1):
-            print(colorir(f"{i}. {conteudo}", cor="cyan"))
-        
-        print(colorir("\n0. Voltar", cor="red"))
-        
-        opcao = input(colorir("\nEscolha um conteúdo: ", cor="yellow"))
+        for i, (nome, dados) in enumerate(conteudos, 1):
+            print(colorir(f'{i}. {nome}', cor="cyan"))
+        print()
+        print(colorir("0. Voltar", "red"))
+        print()
+        opcao = input(colorir("Escolha um conteúdo: ", cor="yellow"))
         
         if opcao == "0":
             break
-        elif opcao.isdigit() and 0 < int(opcao) <= len(CONTEUDOS[tema][idade]):
-            conteudo = list(CONTEUDOS[tema][idade].keys())[int(opcao)-1]
-            mostrar_conteudo_detalhado(tema, idade, conteudo)
+        if opcao.isdigit():  
+            indice = int(opcao) - 1
+            if 0 <= indice <= len(conteudos):
+                nomeConteudo = conteudos[indice][0]
+                conteudoCompleto(tema, idade, nomeConteudo)
+            else:
+                print(colorir("Número inválido! Escolha uma opção da lista.", cor="red"))
+                time.sleep(1)
         else:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
+            print(colorir("Por favor, digite apenas números.", cor="red"))
             time.sleep(1)
 
-def menu_exercicios(tema, idade):
+def praticarExercicios(tema, idade):
     while True:
-        mostrar_titulo(f"EXERCÍCIOS DE {tema.upper()}")
-        conteudos = CONTEUDOS[tema][idade]
-        for i, conteudo in enumerate(conteudos.keys(), 1):
-            if "exercicios" in conteudos[conteudo]: 
-                print(colorir(f"{i}. {conteudo}", cor="cyan"))
+        mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
         
-        print(colorir("\n0. Voltar", cor="red"))
-        
-        opcao = input(colorir("\nEscolha o conteúdo para praticar: ", cor="yellow"))
+        conteudosComExercicios = []  
+        for nome, dados in CONTEUDOS[tema][idade].items():
+            if "exercicios" in dados and dados["exercicios"]:
+                conteudosComExercicios.append((nome, dados))
+            
+        for k, (nome, _) in enumerate(conteudosComExercicios, 1):
+            print(colorir(f"{k}. {nome}", cor="cyan"))
+        print()
+        print(colorir("0. Voltar", cor="red"))
+        print()
+        opcao = input(colorir("Escolha um conteúdo para praticar: ", cor="yellow"))
         
         if opcao == "0":
             break
-        elif opcao.isdigit() and 0 < int(opcao) <= len(conteudos):
-            conteudo = list(conteudos.keys())[int(opcao)-1]
-            if "exercicios" in conteudos[conteudo]:
-                mostrar_exercicios(tema, idade, conteudo)
-            else:
-                print(colorir("Este conteúdo não tem exercícios ainda!", cor="red"))
-                time.sleep(1)
+        elif opcao.isdigit(): 
+            indice = int(opcao) - 1
+            if indice >= 0 and indice < len(conteudosComExercicios):
+                nomeConteudo = conteudosComExercicios[indice][0]
+                mostrarExercicios(tema, idade, nomeConteudo)
         else:
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
 
-def mostrar_exercicios(tema, idade, conteudo_selecionado=None):
-    limpar_tela()
+def mostrarExercicios(tema, idade, conteudo_selecionado=None):
+    limparTela()
     
     if not conteudo_selecionado:
         conteudo_selecionado = list(CONTEUDOS[tema][idade].keys())[0] 
@@ -271,4 +330,5 @@ def mostrar_exercicios(tema, idade, conteudo_selecionado=None):
         time.sleep(1)
     
     input(colorir("\nPressione Enter para voltar...", cor="yellow"))
-menu_principal()
+
+menuPrincipal()
