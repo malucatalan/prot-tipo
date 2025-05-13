@@ -1,3 +1,4 @@
+
 from cores import colorir
 import os
 import time
@@ -307,28 +308,45 @@ def praticarExercicios(tema, idade):
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
 
-def mostrarExercicios(tema, idade, conteudo_selecionado=None):
+def mostrarExercicios(tema, idade, conteudoSelecionado=None):
     limparTela()
     
-    if not conteudo_selecionado:
-        conteudo_selecionado = list(CONTEUDOS[tema][idade].keys())[0] 
+    if not conteudoSelecionado:
+        conteudoSelecionado = list(CONTEUDOS[tema][idade].keys())[0] 
     
-    exercicios = CONTEUDOS[tema][idade][conteudo_selecionado]["exercicios"]
+    exercicios = CONTEUDOS[tema][idade][conteudoSelecionado]["exercicios"]
     
-    print(colorir(f"EXERCÍCIOS: {conteudo_selecionado.upper()}", cor="green", estilo="bold"))
+    print(colorir(f"EXERCÍCIOS: {conteudoSelecionado.upper()}", cor="green", estilo="bold"))
     print(colorir("=" * 50, cor="magenta"))
     
+    quantidade_acertos = 0
+    quantidade_erros = 0
     for i, exercicio in enumerate(exercicios, 1):
-        print(colorir(f"\nExercício {i}: {exercicio['pergunta']}", cor="yellow"))
+        print()
+        print(colorir(f"Exercício {i}: {exercicio['pergunta']}", cor="yellow"))
         resposta = input(colorir("Sua resposta: ", cor="cyan"))
         
         if resposta == exercicio["resposta"]:
             print(colorir("Correto!", cor="green"))
+            quantidade_acertos += 1 
         else:
+            quantidade_erros += 1
             print(colorir(f"Errado. Resposta: {exercicio['resposta']}", cor="red"))
         
         time.sleep(1)
-    
-    input(colorir("\nPressione Enter para voltar...", cor="yellow"))
+
+    time.sleep(0.8)
+    limparTela()
+    if quantidade_acertos > 0:
+        if quantidade_erros == 0:
+            print(colorir("Parabéns! Você acertou todas as repostas.", fundo="bg_green"))
+        print(colorir(f"Repostas corretas: {quantidade_acertos}", cor="green"))
+    if quantidade_erros > 0:
+        if quantidade_acertos == 0:
+            print(colorir("Estude mais, amigo.", cor="red", fundo="bg_red"))
+        print(colorir(f"Respostas incorretas: {quantidade_erros}", cor="red"))
+
+    print()
+    input(colorir("Pressione Enter para voltar...", cor="yellow"))
 
 menuPrincipal()
