@@ -249,8 +249,7 @@ def conteudoCompleto(tema, idade, conteudo):
     dadosConteudo = CONTEUDOS[tema][idade][conteudo]
     
     limparTela()
-    print(colorir(f"{conteudo.upper()}", cor="blue", estilo="bold"))
-    print(colorir("-" * 50, cor="magenta"))
+    mostrarTitulo(f"{conteudo.upper()}")
     print(dadosConteudo["texto"])
     print()
     input(colorir("Pressione Enter para voltar", cor="yellow"))
@@ -285,11 +284,8 @@ def praticarExercicios(tema, idade):
     while True:
         mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
         
-        conteudosComExercicios = []  
-        for nome, dados in CONTEUDOS[tema][idade].items():
-            if "exercicios" in dados and dados["exercicios"]:
-                conteudosComExercicios.append((nome, dados))
-            
+        conteudosComExercicios = list(CONTEUDOS[tema][idade].items())  
+
         for k, (nome, _) in enumerate(conteudosComExercicios, 1):
             print(colorir(f"{k}. {nome}", cor="cyan"))
         print()
@@ -308,19 +304,16 @@ def praticarExercicios(tema, idade):
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
 
-def mostrarExercicios(tema, idade, conteudoSelecionado=None):
+def mostrarExercicios(tema, idade, conteudos):
     limparTela()
     
-    if not conteudoSelecionado:
-        conteudoSelecionado = list(CONTEUDOS[tema][idade].keys())[0] 
+    exercicios = CONTEUDOS[tema][idade][conteudos]["exercicios"]
     
-    exercicios = CONTEUDOS[tema][idade][conteudoSelecionado]["exercicios"]
-    
-    print(colorir(f"EXERCÍCIOS: {conteudoSelecionado.upper()}", cor="green", estilo="bold"))
-    print(colorir("=" * 50, cor="magenta"))
+    mostrarTitulo(f"EXERCÍCIOS: {conteudos.upper()}")
     
     quantidade_acertos = 0
     quantidade_erros = 0
+    
     for i, exercicio in enumerate(exercicios, 1):
         print()
         print(colorir(f"Exercício {i}: {exercicio['pergunta']}", cor="yellow"))
