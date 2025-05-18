@@ -6,14 +6,20 @@ import random
 
 def limparTela():
     os.system('cls')
- 
 def mostrarTitulo(texto):
     limparTela()
     print(colorir("-" * 50, cor="magenta"))
     print(colorir(texto.center(50), cor="magenta", estilo="bold"))
     print(colorir("-" * 50, cor="magenta"))
     print()
-
+def mostrarOpcoesIdades():
+        print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
+        print(colorir("1. 5-6 anos", cor="green"))
+        print(colorir("2. 7-8 anos", cor="yellow"))
+        print(colorir("3. 9-10 anos", cor="cyan"))
+        print()
+        print(colorir("0. Voltar", cor="red"))
+        print()
 def menuPrincipal():
     while True:
         mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
@@ -38,22 +44,12 @@ def menuPrincipal():
         else:
             print(colorir("Opção inválida! Tente novamente.", cor="red"))
             time.sleep(1)
-        
-def menuIdades(titulo):
-    while True:
-        mostrarTitulo(titulo)
-        print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
-        print(colorir("1. 5-6 anos", cor="green"))
-        print(colorir("2. 7-8 anos", cor="yellow"))
-        print(colorir("3. 9-10 anos", cor="cyan"))
-        print()
-        print(colorir("0. Voltar", cor="red"))
-        print()
-        return input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
-    
 def menuMatematica():
     while True:
-        opcao = menuIdades("MATEMÁTICA DIVERTIDA")
+        mostrarTitulo("MATEMÁTICA DIVERTIDA")
+        mostrarOpcoesIdades()
+
+        opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
         if opcao == "1":
             menuConteudosExercicios("matematica", "5-6")
         elif opcao == "2":
@@ -62,10 +58,12 @@ def menuMatematica():
             menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             break
-
 def menuInformatica():
     while True:
-        opcao = menuIdades("INFORMÁTICA DIVERTIDA")
+        mostrarTitulo("INFORMÁTICA DIVERTIDA")
+        mostrarOpcoesIdades()
+
+        opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
         if opcao == "1":
             menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
@@ -74,7 +72,6 @@ def menuInformatica():
             menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             break
-
 def menuConteudosExercicios(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
