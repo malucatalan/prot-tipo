@@ -12,6 +12,13 @@ def mostrarTitulo(texto):
     print(colorir(texto.center(50), cor="magenta", estilo="bold"))
     print(colorir("-" * 50, cor="magenta"))
     print()
+def mostrarTextoLinhaQuebrada(texto):
+        inicio = 0
+        fim = 50
+        while inicio < len(texto):
+            print(texto[inicio:fim])
+            inicio += 50
+            fim += 50
 def mostrarOpcoesIdades():
         print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
         print(colorir("1. 5-6 anos", cor="green"))
@@ -72,6 +79,55 @@ def menuInformatica():
             menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             break
+def sobreSistema():
+    def voltarPagina(pagina):
+        while True:
+            mostrarTitulo("Sobre o Sistema")
+            if pagina == 2:
+                print(mostrarTextoLinhaQuebrada(lista_paragrafos[0]))
+                mostrarOpcoesSobreSistema()
+            if pagina == 3:
+                print(mostrarTextoLinhaQuebrada(lista_paragrafos[1]))
+                mostrarOpcoesSobreSistema()
+
+            prox_anterior = input(colorir(">", cor="blue"))
+            break
+    def mostrarOpcoesSobreSistema():
+        print()
+        print(f"Pagina {n_pagina}")
+        print(colorir(colorir("Qualquer tecla. Próxima", cor="green")))
+        if n_pagina > 1:
+            print(colorir("1. Anterior", cor="yellow"))
+        print(colorir("0. Voltar", cor="red"))
+
+    lista_paragrafos = [
+        "Code e Conta é uma plataforma educacional para crianças,"
+        " que tem o objetivo de tornar o aprendizado de matemática"
+        " e informática mais acessível, divertido e lúdico, estimulando "
+        "a criatividade e curiosidade das crianças.",
+        "Com o crescente uso e avanço da tecnologia, onde as crianças já nascem em uma era "
+        "digital, é de suma importância o domínio de atividades tecnológicas e do pensamento "
+        "lógico. As crianças de hoje são nativas digitais, por isso é essencial que elas aprendam "
+        "desde cedo a usar a tecnologia de forma consciente, criativa, crítica e responsável.",
+        "Desde 2010, a taxa de autismo é estimada em cerca de 1–2 a cada 1.000 pessoas em todo o mundo, sendo mais fácil de identificar em meninos (4–5 vezes mais em meninos do que meninas). Cerca de 1,5% das crianças nos Estados Unidos (uma em cada 68) são diagnosticadas com TEA, a partir de 2014, houve um aumento de 30%, uma a cada 88, em 2012.[28][29][30] Em 2014 e 2016, os números foram de 1 em 68.[31] Em 2018, um aumento de 15%[32] no diagnóstico elevou a prevalência em 1 para 59 crianças.[32][31][33] A taxa de autismo em adultos de 18 anos ou mais no Reino Unido é de 1,1%[34] o número de pessoas diagnosticadas vem aumentando drasticamente desde a década de 1980, em parte devido a mudanças na prática do diagnóstico e incentivos financeiros subsidiados pelo governo para realizar diagnósticos;[30] a questão se as taxas reais têm aumentado realmente, ainda não é conclusiva.[35]"
+    ]
+    while True:
+        mostrarTitulo("Sobre o Sistema")
+        
+        for paragrafo in lista_paragrafos:
+            n_pagina += 1
+        
+            mostrarTextoLinhaQuebrada(paragrafo)
+            mostrarOpcoesSobreSistema()
+
+            prox_anterior = input(colorir(">", cor="blue"))
+            if prox_anterior == '1':
+                voltarPagina(n_pagina)
+                
+            elif prox_anterior == "0":
+                menuPrincipal()
+            n_pagina = 1
+            
 def menuConteudosExercicios(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
