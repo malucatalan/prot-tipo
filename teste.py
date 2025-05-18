@@ -55,11 +55,11 @@ def menuMatematica():
     while True:
         opcao = menuIdades("MATEMÁTICA DIVERTIDA")
         if opcao == "1":
-            menuConteudosExercicios("matematica", "5-6")
+            menuConteudosexercício("matematica", "5-6")
         elif opcao == "2":
-            menuConteudosExercicios("matematica", "7-8")
+            menuConteudosexercício("matematica", "7-8")
         elif opcao == "3":
-            menuConteudosExercicios("matematica", "9-10")
+            menuConteudosexercício("matematica", "9-10")
         elif opcao == "0":
             break
 
@@ -67,15 +67,15 @@ def menuInformatica():
     while True:
         opcao = menuIdades("INFORMÁTICA DIVERTIDA")
         if opcao == "1":
-            menuConteudosExercicios("informatica", "5-6")
+            menuConteudosexercício("informatica", "5-6")
         elif opcao == "2":
-            menuConteudosExercicios("informatica", "7-8")
+            menuConteudosexercício("informatica", "7-8")
         elif opcao == "3":
-            menuConteudosExercicios("informatica", "9-10")
+            menuConteudosexercício("informatica", "9-10")
         elif opcao == "0":
             break
 
-def menuConteudosExercicios(tema, idade):
+def menuConteudosexercício(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
         print(colorir("1. Ver Conteúdos", cor="green"))
@@ -87,7 +87,7 @@ def menuConteudosExercicios(tema, idade):
         if opcao == "1":
             verConteudos(tema, idade)
         elif opcao == "2":
-            praticarExercicios(tema, idade) 
+            praticarexercício(tema, idade) 
         elif opcao == "0":
             break
         else:
@@ -97,7 +97,7 @@ def menuConteudosExercicios(tema, idade):
 CONTEUDOS = {
     "matematica": {
         "5-6": {
-            "Números de 1 a 50": {
+            "Contagem": {
                                 "texto": "\n".join(
                     "  ".join(f"{n:>5}" for n in linha) 
                     for linha in zip(
@@ -108,102 +108,211 @@ CONTEUDOS = {
                         range(41, 51)
                     )
                 ),
-                "exercicios": [
-                    {
-                        "pergunta": "Conte quantos animais aparecen: 🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱",
-                        "resposta": "22"
-                    },
+            
+                "exercício": [
                     {
                         "pergunta": "Conte quantos dedos há em uma mão",
-                        "resposta": "5"
+                        "resposta": "5"   
+                    },
+                    {
+                        "pergunta":f'🍓🍓🍓🍓🍓🍓🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌\nQuantos morangos e bananas há?' ,
+                        "resposta": "16"  
+                    },
+                    {
+                        "pergunta": f'🐶🐶🐱🐱🐭🐭🐼🐼🐷🐷🐯🐯\nQuantos animais há?',
+                        "resposta": "12"
+                    },
+                    {
+                        "pergunta": f'⚽🏀⚽⚽⚽🏀🏀⚽⚽⚽⚾⚾🎱🎱\nQuantas bolas de futebol há?',
+                        "resposta":"7"
+                    },
+                    {
+                        "pergunta": f'⚾🏈🏀🐯🍌🍓🍎🍊🍋‍🟩🐼🐭🍓🥎🏀🏈🐷🐶🐱🍌🥎⚾🐭🐼🍓🐱🐯\nQuantos animais há?' , 
+                        "resposta": "10"
                     }
                 ],
                 },
-            "Formas básicas": {
-                "texto": "Formas geométricas básicas:\n\nTriângulo - 3 lados\nQuadrado - 4 lados iguais\nCírculo - Sem cantos",
-                "exercicios": [
+            "Padronização": {
+                "texto": "Padronização é quando fazemos tudo do mesmo jeitinho para ficar mais fácil de entender.",
+                "exercício": [
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "resposta 1"
+                        "pergunta": f'🔴🟢🔴🟢🔴🟢🔴🟢🔴\nQual o próximo?\n1-🔴\n2-🟢',
+                        "resposta": "2"
                     },
                     {
-                        "pergunta": "Pergunta 2",
-                        "resposta": "Resposta 2"
-                    }
+                        "pergunta": f'⚪🟡🔺🔸⚪🟡🔺🔸⚪🟡\nQual o  próximo?\n1-🔺\n2-⚪\n3-🔸\n4-🟡',
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta": f'🔷🔷🔶🔷🔷🔶🔷🔷🔶🔷\nQual o próximo?\n1-🔹\n2-🔸\n3-🔶\n4-🔷',
+                        "resposta": "4"
+                    },
+                    {
+                        "pergunta": f'🔻🔺🔶🔻🔺🔶🔻\nQual o próximo?\n1-🔺\n2-🔻\n3-🔶',
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta": f'🟢🔻🔻🟢🔻🔻🟢🔻🔻🟢🔻\nQual o próximo?\n1-🟢\n2-🔻',
+                        "resposta": "2"
+                    },
                 ],
             },
-            "Adição com unidade simples": {
-                "texto": "Vamos aprender como fazer pequenas adições",
-                "exercicios": [
+            "Adição simples": {
+                "texto": "Sabe quando você quer comer maças com seus amigos, e não têm o suficiente? Adição é quando vamos no mercadinho do Seu Zé, para que todo mundo possa comer maças",
+                "exercício": [
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "Resposta 1"
+                        "pergunta": f'🍓🍓🍓🍓+🍌🍌🍌🍌\nQuantos morangos e bananas há?',
+                        "resposta": "8"
                     },
                     {
-                        "pergunta": "Pergunta 2",
-                        "resposta": "Resposta 2"
-                    }
+                        "pergunta": f'🍌🍌🍌🍌+🍓🍓🍓🍓+🍎🍎🍎🍎\nQuantas frutas há?',
+                        "resposta": "12"
+                    },
+                    {
+                        "pergunta": f'🍎🍎🍎🍎🍎🍎🍎+🍓🍓🍓🍓🍓\nQuantas frutas há?',
+                        "resposta": "12"
+                    },
+                    {
+                        "pergunta": f'1 + 5',
+                        "resposta": "6"
+                    },
+                    {
+                        "pergunta": f'3 + 7',
+                        "resposta": "10"
+                    },
                 ],
             },
-            "Subtração com unidade simples": {
-                "texto": "Vamos aprender como fazer pequenas subtrações",
-                "exercicios": [
+            "Subtração simples": {
+                "texto": "Sabe quando você têm 10 balinhas, e come 5? Agora voê só têm 5, subtração é isso!!",
+                "exercício": [
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "Resposta 1"
+                        "pergunta": f'🍬🍬🍬 - 🍬\nQuantas balinhas há agora?',
+                        "resposta": "2"
                     },
                     {
-                        "pergunta": "Pergunta 2",
-                        "resposta": "resposta 2"
-                    }
-                ]
-            }
+                        "pergunta": f'⚽⚽⚽⚽-⚽⚽⚽\nQuantas bolas há agora?',
+                        "resposta":"1"
+                    },
+                    {
+                        "pergunta": f'🍊🍊🍊🍊🍊🍊🍊 - 5\nQuantas laranjas há agora?',
+                        "resposta":"2"
+                    },
+                    {
+                        "pergunta": f'10 - 5',
+                        "resposta":"5"
+                    },
+                    {
+                        "pergunta": f'13-7',
+                        "resposta":"6"
+                    },
+                ],
+            },
+            "Ordem crescente e decresente":{
+                "texto":f'Quando temos um número depois do outro ele é chamado de sucessor\nAgora se temos um número antes do outro chamamos de antecessor',
+                "exercício":[
+                    {
+                        "pergunta":"5 ou 8\nQual é maior?",
+                        "resposta":"8"
+                    },
+                    {
+                        "pergunta": "10 ou 5\nQual é maior?",
+                        "resposta": "10"
+                    },
+                    {
+                        "pergunta": "20 ou 15\nQual é maior?",
+                        "resposta": "20"
+                    },
+                    {
+                        "pergunta": f'10- -12-13\nQual é o número que esta faltando?',
+                        "resposta": "11"
+                    },
+                    {
+                        "pergunta": f'5-6-7\nQual número vem antes do 5?',
+                        "resposta": "4"
+                    },
+                ],
+            },
         },
         "7-8": {
-            "Adição com unidade de dezenas": {
-                "texto": "Somando números:",
-                "exercicios": [
+            "Adição e subtração com 2 casas decimais": {
+                "texto": "Somaremos da mesma forma de antes, só que agora não conseguiremos contar nos dedos, vamos testar?!",
+                "exercício": [
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "Resposta 1"
+                        "pergunta": "25 + 10" ,
+                        "resposta": "35"
                     },
                     {
-                        "pergunta": "Pergunta 2",
-                        "resposta": "Resposta 2"
-                    }
-                ]
+                        "pergunta": "55 + 40",
+                        "resposta": "95"
+                    },
+                    {
+                        "pergunta": "100-50",
+                        "resposta": "50"
+                    },
+                    {
+                        "pergunta": "30 - 15",
+                        "resposta": "15"
+                    },
+                    {   "pergunta": "100 - 30",
+                        "resposta": "70"
+                    },
+                ],
             },
-            "Subtração com unidade de dezena": {
-                "texto": "Vamos aprender como somar números com casas de dezena",
-                "exercicios": [
+            "Multiplicação": {
+                "texto": "Quando vamos somar um número igual um monte de vezes, para não perder tempo usamos o simbolo'x'",
+                "exercício": [
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "Resposta 1"
+                        "pergunta": "5 x 2",
+                        "resposta": "10"
                     },
                     {
-                        "pergunta": "pergunta 2",
-                        'resposta': "resposta 2"
-                    }
-                ]
+                        "pergunta": "4 x 3",
+                        'resposta': "12"
+                    },
+                    {
+                        "pergunta": "5 x 6",
+                        "resposta": "30"
+                    },
+                    {
+                        "pergunta": "6 x 8",
+                        "resposta": "48"
+                    },
+                    {
+                        "pergunta": "9 x 7",
+                        "resposta": "63"
+                    },
+                ],
             },
-            "Formas planas e cilíndricas": {
-                "texto": "Vamos aprender os tipos diferentes de formas geométricas",
-                "exercicios": [
+            "Números pares e ímpares": {
+                "texto": f'Pense nos números no salão, você pega um deles e reparte de um em um, repare que alguns podem ser agrupados em pares e alguns sobraram 1\n, os que formaram pares, são chamdos de.. par e os que não são ímpares',
+                "exercício": [
                     {
-                        "pergunta": "pergunta 1",
-                        "resposta": "resposta1"
+                        "pergunta": "O número 10 é ímpar ou par?",
+                        "resposta": "par"
                     },
                     {
-                        "pergunta": "pergunta 2",
-                        "resposta": "resposta 2"
-                    }
-                ]
-            }
+                        "pergunta": "O número 23 é ímpar ou par?",
+                        "resposta": "ímpar"
+                    },
+                    {
+                        "pergunta": "O número 9 é ímpar ou par?",
+                        "resposta": "ímpar"
+                    },
+                    {
+                        "pergunta": "O número 24 é ímpar ou par?",
+                        "resposta": "par"
+                    },
+                    {
+                        "pergunta": "O número 13 é ímpar ou par?",
+                        "resposta": "ímpar"
+                    },
+                ],
+            },
         },
         "9-10": {
             "Tabuada e multiplicação simples": {
                 "texto": "Vamos aprender a tabuada",
-                "exercicios": [
+                "exercício": [
                     {
                         "pergunta": "pergunta 1",
                         "resposta": "resposta 1"
@@ -212,7 +321,7 @@ CONTEUDOS = {
             },
             "Divisão simples": {
                 "texto": "Vamos aprender como fazer divisões",
-                "exercicios": [
+                "exercício": [
                     {
                         "pergunta": "pergunta 1",
                         "resposta": "resposta 1"
@@ -221,7 +330,7 @@ CONTEUDOS = {
             },
             "Números decimais": {
                 "texto": "Vamos aprender como funcionam os números decimais",
-                "exercicios": [
+                "exercício": [
                     {
                         "pergunta": "pergunta 1",
                         "resposta": "resposta 1"
@@ -234,7 +343,7 @@ CONTEUDOS = {
         "5-6": {
             "Partes do Computador": {
                 "texto": "Principais componentes",
-                "exercicios": [ 
+                "exercício": [ 
                     {
                         "pergunta": "Pergunta 1",
                         "resposta": "Resposta 1"
@@ -280,13 +389,13 @@ def verConteudos(tema, idade):
             print(colorir("Por favor, digite apenas números.", cor="red"))
             time.sleep(1)
 
-def praticarExercicios(tema, idade):
+def praticarexercício(tema, idade):
     while True:
         mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
         
-        conteudosComExercicios = list(CONTEUDOS[tema][idade].items())  
+        conteudosComexercício = list(CONTEUDOS[tema][idade].items())  
 
-        for k, (nome, _) in enumerate(conteudosComExercicios, 1):
+        for k, (nome, _) in enumerate(conteudosComexercício, 1):
             print(colorir(f"{k}. {nome}", cor="cyan"))
         print()
         print(colorir("0. Voltar", cor="red"))
@@ -297,24 +406,24 @@ def praticarExercicios(tema, idade):
             break
         elif opcao.isdigit(): 
             indice = int(opcao) - 1
-            if indice >= 0 and indice < len(conteudosComExercicios):
-                nomeConteudo = conteudosComExercicios[indice][0]
-                mostrarExercicios(tema, idade, nomeConteudo)
+            if indice >= 0 and indice < len(conteudosComexercício):
+                nomeConteudo = conteudosComexercício[indice][0]
+                mostrarexercício(tema, idade, nomeConteudo)
         else:
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
 
-def mostrarExercicios(tema, idade, conteudos):
+def mostrarexercício(tema, idade, conteudos):
     limparTela()
     
-    exercicios = CONTEUDOS[tema][idade][conteudos]["exercicios"]
+    exercício = CONTEUDOS[tema][idade][conteudos]["exercício"]
     
     mostrarTitulo(f"EXERCÍCIOS: {conteudos.upper()}")
     
     quantidade_acertos = 0
     quantidade_erros = 0
     
-    for i, exercicio in enumerate(exercicios, 1):
+    for i, exercicio in enumerate(exercício, 1):
         print()
         print(colorir(f"Exercício {i}: {exercicio['pergunta']}", cor="yellow"))
         resposta = input(colorir("Sua resposta: ", cor="cyan"))
