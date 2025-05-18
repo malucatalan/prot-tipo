@@ -79,19 +79,7 @@ def menuInformatica():
             menuConteudosexercício("informatica", "9-10")
         elif opcao == "0":
             break
-def sobreSistema():
-    def voltarPagina(pagina):
-        while True:
-            mostrarTitulo("Sobre o Sistema")
-            if pagina == 2:
-                print(mostrarTextoLinhaQuebrada(lista_paragrafos[0]))
-                mostrarOpcoesSobreSistema()
-            if pagina == 3:
-                print(mostrarTextoLinhaQuebrada(lista_paragrafos[1]))
-                mostrarOpcoesSobreSistema()
-
-            prox_anterior = input(colorir(">", cor="blue"))
-            break
+def sobreSistema():     
     def mostrarOpcoesSobreSistema():
         print()
         print(f"Pagina {n_pagina}")
@@ -111,22 +99,27 @@ def sobreSistema():
         "desde cedo a usar a tecnologia de forma consciente, criativa, crítica e responsável.",
         "Desde 2010, a taxa de autismo é estimada em cerca de 1–2 a cada 1.000 pessoas em todo o mundo, sendo mais fácil de identificar em meninos (4–5 vezes mais em meninos do que meninas). Cerca de 1,5% das crianças nos Estados Unidos (uma em cada 68) são diagnosticadas com TEA, a partir de 2014, houve um aumento de 30%, uma a cada 88, em 2012.[28][29][30] Em 2014 e 2016, os números foram de 1 em 68.[31] Em 2018, um aumento de 15%[32] no diagnóstico elevou a prevalência em 1 para 59 crianças.[32][31][33] A taxa de autismo em adultos de 18 anos ou mais no Reino Unido é de 1,1%[34] o número de pessoas diagnosticadas vem aumentando drasticamente desde a década de 1980, em parte devido a mudanças na prática do diagnóstico e incentivos financeiros subsidiados pelo governo para realizar diagnósticos;[30] a questão se as taxas reais têm aumentado realmente, ainda não é conclusiva.[35]"
     ]
+    n_pagina = 1
+    ultima_pagina = len(lista_paragrafos)
     while True:
-        mostrarTitulo("Sobre o Sistema")
         
-        for paragrafo in lista_paragrafos:
-            n_pagina += 1
-        
-            mostrarTextoLinhaQuebrada(paragrafo)
-            mostrarOpcoesSobreSistema()
-
-            prox_anterior = input(colorir(">", cor="blue"))
-            if prox_anterior == '1':
-                voltarPagina(n_pagina)
+        def principal(pagina):
+            while pagina <= ultima_pagina:
+                for paragrafo in lista_paragrafos:
+                    mostrarTitulo("Sobre o Sistema")
+                    if pagina in [n for n in range(ultima_pagina)]:
+                        mostrarTextoLinhaQuebrada(lista_paragrafos[pagina-1])
                 
-            elif prox_anterior == "0":
-                menuPrincipal()
-            n_pagina = 1
+                    mostrarOpcoesSobreSistema()
+
+                    prox_anterior = input(colorir(">", cor="blue"))
+                    if prox_anterior == '1':
+                        principal()
+                        break
+                    elif prox_anterior == "0":
+                        menuPrincipal()
+                    pagina += 1
+        principal(n_pagina)
             
 def menuConteudosExercicios(tema, idade):
    while True:
