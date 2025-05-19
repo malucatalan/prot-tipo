@@ -28,7 +28,7 @@ def mostrarOpcoesIdades():
         print(colorir("0. Voltar", cor="red"))
         print()
 def menuPrincipal():
-    OPCOESMENUPRINCIPAL = "123"
+    OPCOESMENUPRINCIPAL = "1230"
     mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
     print(colorir("1. Matemática", cor="blue"))
     print(colorir("2. Informática", cor="green"))
@@ -60,11 +60,15 @@ def menuMatematica():
         elif opcao == "0":
             break
 def menuInformatica():
+    OPCOESMENUINFORMATICA = '0123'
     while True:
         mostrarTitulo("INFORMÁTICA DIVERTIDA")
         mostrarOpcoesIdades()
 
         opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
+        if opcao not in OPCOESMENUINFORMATICA:
+            print(colorir("Opção inválida! Tente novamente.", cor="red"))
+            time.sleep(1)
         if opcao == "1":
             menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
@@ -75,30 +79,55 @@ def menuInformatica():
             break
 def sobreSistema():     
     def menuSobreSistema(pagina):
-        MENUSOBRESISTEMAOPCOES = ("", "10")
-        amostrapagina = pagina + 1
+        MENUSOBRESISTEMAOPCOES = "10"
+        amostra_pagina = pagina + 1
         print()
-        print(f"Página {amostrapagina}")
-        print(colorir(colorir("Qualquer tecla. Próxima", cor="green")))
-        if amostrapagina > 1:
+        print(colorir(f"\t\tPágina {amostra_pagina}", cor="black", fundo="bg_white"))
+        print(colorir(colorir("Enter. Próxima", cor="green")))
+        if amostra_pagina > 1:
             print(colorir("1. Anterior", cor="yellow"))
         print(colorir("0. Voltar", cor="red"))
 
         opcao = input(colorir(">", cor="blue"))
+        if amostra_pagina == 1 and opcao not in MENUSOBRESISTEMAOPCOES[1]:
+            print(colorir("Opção inválida! Tente novamente.", cor="red"))
+            time.sleep(1)
+            paginas(pagina)
         if opcao not in MENUSOBRESISTEMAOPCOES:
             print(colorir("Opção inválida! Tente novamente.", cor="red"))
             time.sleep(1)
             paginas(pagina)
         return opcao
     lista_paragrafos = [
-        "O interesse pelo texto como objeto de estudo gerou vários trabalhos importantes de teóricos da Linguística Textual, que percorreram fases diversas cujas características principais eram transpor os limites da frase descontextualizada da gramática tradicional e ainda incluir os relevantes papéis do autor e do leitor na construção de textos",
-        "Todo texto tem que ter alguns aspectos formais, ou seja, tem que ter estrutura, elementos que estabelecem relação entre si. Dentro dos aspectos formais temos a coesão e a coerência, que dão sentido e forma ao texto. 'A coesão textual é a relação, a ligação, a conexão entre as palavras, expressões ou frases do texto'.[4] A coerência está relacionada com a compreensão, a interpretação do que se diz ou escreve. Um texto precisa ter sentido, isto é, precisa ter coerência. Embora a coesão não seja condição suficiente para que enunciados se constituam em textos, são os elementos coesivos que lhes dão maior legibilidade e evidenciam as relações entre seus diversos componentes, a coerência depende da coesão.",
-        "Os textos não literários pretendem informar o leitor de forma direta e objetiva, a partir de uma linguagem denotativa. A função referencial predomina-se nos textos não-literários.",
-    ]
+        "Code e Conta é uma plataforma educacional para crianças, "
+        "que tem o objetivo de tornar o aprendizado de matemática "
+        "e informática mais acessível, divertido e lúdico, "
+        "estimulando a criatividade e curiosidade das crianças.",
+        
+        "Com o crescente uso e avanço da tecnologia, "
+        "onde as crianças já nascem em uma era digital, "
+        "é de suma importância o domínio de atividades "
+        "tecnológicas e do pensamento lógico. "
+        "As crianças de hoje são nativas digitais, "
+        "por isso é essencial que elas aprendam desde "
+        "cedo a usar a tecnologia de forma consciente, "
+        "criativa, crítica e responsável.",
+
+        "De acordo com o PISA (Programa Internacional de Avaliação de Estudantes) "
+        "no Brasil, mais de 70% das crianças e adolescentes, enfrentam dificuldades "
+        "básicas em matemática. Uma análise do PISA 2022 revelou que apenas 3% dos "
+        "estudantes brasileiros de baixo nível socioeconômico, têm aprendizado adequado em matemática.",
+
+        "A partir desses dados, nossa equipe constatou a necessidade de uma plataforma que "
+        "busque ensinar de maneira democrática e divertida, acentuando o interesse no "
+        "aprendizado, tendo como meta auxiliar no aumento do conhecimento de matemática e "
+        "informática de forma gratuita e acessível."
+        ]
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
-    def paginas(pagina):
-        while pagina < ultima_pagina:
+    while True:
+        def paginas(pagina):
+            while pagina < ultima_pagina:
                 mostrarTitulo("Sobre o Sistema")
                 if pagina in [n for n in range(0, ultima_pagina)]:
                     mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
@@ -106,11 +135,13 @@ def sobreSistema():
                 if prox_anterior == '1' and pagina > 0:
                     pagina -= 1
                     paginas(pagina)
-                    break
                 elif prox_anterior == "0":
-                    menuPrincipal()
-                pagina += 1
-    paginas(n_pagina)
+                    main()
+                    return
+                else:
+                    pagina += 1
+        paginas(n_pagina)
+    
 def menuConteudosExercicios(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
@@ -493,5 +524,4 @@ def main():
             menuInformatica()
         elif opcao == "3":
             sobreSistema()
-
 main()
