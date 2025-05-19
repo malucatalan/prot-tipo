@@ -80,41 +80,33 @@ def menuInformatica():
         elif opcao == "0":
             break
 def sobreSistema():     
-    def mostrarOpcoesSobreSistema():
+    def mostrarOpcoesSobreSistema(pagina):
+        amostrapagina= pagina + 1
         print()
-        print(f"Pagina {n_pagina}")
+        print(f"Página {amostrapagina}")
         print(colorir(colorir("Qualquer tecla. Próxima", cor="green")))
-        if n_pagina > 1:
+        if amostrapagina > 1:
             print(colorir("1. Anterior", cor="yellow"))
         print(colorir("0. Voltar", cor="red"))
 
     lista_paragrafos = [
-        "Code e Conta é uma plataforma educacional para crianças,"
-        " que tem o objetivo de tornar o aprendizado de matemática"
-        " e informática mais acessível, divertido e lúdico, estimulando "
-        "a criatividade e curiosidade das crianças.",
-        "Com o crescente uso e avanço da tecnologia, onde as crianças já nascem em uma era "
-        "digital, é de suma importância o domínio de atividades tecnológicas e do pensamento "
-        "lógico. As crianças de hoje são nativas digitais, por isso é essencial que elas aprendam "
-        "desde cedo a usar a tecnologia de forma consciente, criativa, crítica e responsável.",
-        "Desde 2010, a taxa de autismo é estimada em cerca de 1–2 a cada 1.000 pessoas em todo o mundo, sendo mais fácil de identificar em meninos (4–5 vezes mais em meninos do que meninas). Cerca de 1,5% das crianças nos Estados Unidos (uma em cada 68) são diagnosticadas com TEA, a partir de 2014, houve um aumento de 30%, uma a cada 88, em 2012.[28][29][30] Em 2014 e 2016, os números foram de 1 em 68.[31] Em 2018, um aumento de 15%[32] no diagnóstico elevou a prevalência em 1 para 59 crianças.[32][31][33] A taxa de autismo em adultos de 18 anos ou mais no Reino Unido é de 1,1%[34] o número de pessoas diagnosticadas vem aumentando drasticamente desde a década de 1980, em parte devido a mudanças na prática do diagnóstico e incentivos financeiros subsidiados pelo governo para realizar diagnósticos;[30] a questão se as taxas reais têm aumentado realmente, ainda não é conclusiva.[35]"
+        "O interesse pelo texto como objeto de estudo gerou vários trabalhos importantes de teóricos da Linguística Textual, que percorreram fases diversas cujas características principais eram transpor os limites da frase descontextualizada da gramática tradicional e ainda incluir os relevantes papéis do autor e do leitor na construção de textos",
+        "Todo texto tem que ter alguns aspectos formais, ou seja, tem que ter estrutura, elementos que estabelecem relação entre si. Dentro dos aspectos formais temos a coesão e a coerência, que dão sentido e forma ao texto. 'A coesão textual é a relação, a ligação, a conexão entre as palavras, expressões ou frases do texto'.[4] A coerência está relacionada com a compreensão, a interpretação do que se diz ou escreve. Um texto precisa ter sentido, isto é, precisa ter coerência. Embora a coesão não seja condição suficiente para que enunciados se constituam em textos, são os elementos coesivos que lhes dão maior legibilidade e evidenciam as relações entre seus diversos componentes, a coerência depende da coesão.",
+        "Os textos não literários pretendem informar o leitor de forma direta e objetiva, a partir de uma linguagem denotativa. A função referencial predomina-se nos textos não-literários.",
     ]
-    n_pagina = 1
+    n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
     while True:
-        
         def principal(pagina):
-            while pagina <= ultima_pagina:
-                for paragrafo in lista_paragrafos:
+            while pagina < ultima_pagina:
                     mostrarTitulo("Sobre o Sistema")
-                    if pagina in [n for n in range(ultima_pagina)]:
-                        mostrarTextoLinhaQuebrada(lista_paragrafos[pagina-1])
-                
-                    mostrarOpcoesSobreSistema()
-
+                    if pagina in [n for n in range(0, ultima_pagina)]:
+                        mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
+                    mostrarOpcoesSobreSistema(pagina)
                     prox_anterior = input(colorir(">", cor="blue"))
-                    if prox_anterior == '1':
-                        principal()
+                    if prox_anterior == '1' and pagina > 0:
+                        pagina -= 1
+                        principal(pagina)
                         break
                     elif prox_anterior == "0":
                         menuPrincipal()
