@@ -1,8 +1,9 @@
-from texto_menu_sobre import TEXTOSOBRE
 from cores import colorir
 import os
 import time
+from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
+
 def limparTela():
     os.system('cls')
 def mostrarTitulo(texto):
@@ -41,16 +42,12 @@ def menuPrincipal():
         time.sleep(1)
     return opcao
 def menuMatematica():
-    OPCOESMENUMATEMATICA = "0123"
     while True:
         mostrarTitulo("MATEMÁTICA DIVERTIDA")
         mostrarOpcoesIdades()
 
         opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
-        if opcao not in OPCOESMENUMATEMATICA:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
-        elif opcao == "1":
+        if opcao == "1":
             menuConteudosExercicios("matematica", "5-6")
         elif opcao == "2":
             menuConteudosExercicios("matematica", "7-8")
@@ -58,16 +55,15 @@ def menuMatematica():
             menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             main()
+        else:
+            print(colorir("Opção inválida! Tente novamente.", cor="red"))
+            time.sleep(1)
 def menuInformatica():
-    OPCOESMENUINFORMATICA = '0123'
     while True:
         mostrarTitulo("INFORMÁTICA DIVERTIDA")
         mostrarOpcoesIdades()
 
         opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
-        if opcao not in OPCOESMENUINFORMATICA:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
         if opcao == "1":
             menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
@@ -76,6 +72,9 @@ def menuInformatica():
             menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             main()
+        else:
+            print(colorir("Opção inválida! Tente novamente.", cor="red"))
+            time.sleep(1)
 def sobreSistema():     
     def menuSobreSistema(pagina):
         MENUSOBRESISTEMAOPCOES = "10"
