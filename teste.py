@@ -28,29 +28,19 @@ def mostrarOpcoesIdades():
         print(colorir("0. Voltar", cor="red"))
         print()
 def menuPrincipal():
-    while True:
-        mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
-        print(colorir("1. Matemática", cor="blue"))
-        print(colorir("2. Informática", cor="green"))
-        print()
-        print(colorir("3. Sobre o Sistema", cor="yellow"))
-        print(colorir("0. Sair", cor="red"))
-        print()
-
-        opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
-
-        if opcao == "0":
-            print(colorir("Até logo! Volte sempre.", cor="red"))
-            break
-        elif opcao == "1":
-            menuMatematica()
-        elif opcao == "2":
-            menuInformatica()
-        elif opcao == "3":
-            sobreSistema()
-        else:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
+    OPCOESMENUPRINCIPAL = "123"
+    mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
+    print(colorir("1. Matemática", cor="blue"))
+    print(colorir("2. Informática", cor="green"))
+    print()
+    print(colorir("3. Sobre o Sistema", cor="yellow"))
+    print(colorir("0. Sair", cor="red"))
+    print()
+    opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
+    if opcao not in OPCOESMENUPRINCIPAL:
+        print(colorir("Opção inválida! Tente novamente.", cor="red"))
+        time.sleep(1)
+    return opcao
 def menuMatematica():
     while True:
         mostrarTitulo("MATEMÁTICA DIVERTIDA")
@@ -58,11 +48,11 @@ def menuMatematica():
 
         opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
         if opcao == "1":
-            menuConteudosexercício("matematica", "5-6")
+            menuConteudosExercicios("matematica", "5-6")
         elif opcao == "2":
-            menuConteudosexercício("matematica", "7-8")
+            menuConteudosExercicios("matematica", "7-8")
         elif opcao == "3":
-            menuConteudosexercício("matematica", "9-10")
+            menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             break
 def menuInformatica():
@@ -72,11 +62,11 @@ def menuInformatica():
 
         opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
         if opcao == "1":
-            menuConteudosexercício("informatica", "5-6")
+            menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
-            menuConteudosexercício("informatica", "7-8")
+            menuConteudosExercicios("informatica", "7-8")
         elif opcao == "3":
-            menuConteudosexercício("informatica", "9-10")
+            menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             break
 def sobreSistema():     
@@ -97,7 +87,7 @@ def sobreSistema():
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
     while True:
-        def principal(pagina):
+        def paginas(pagina):
             while pagina < ultima_pagina:
                     mostrarTitulo("Sobre o Sistema")
                     if pagina in [n for n in range(0, ultima_pagina)]:
@@ -106,12 +96,12 @@ def sobreSistema():
                     prox_anterior = input(colorir(">", cor="blue"))
                     if prox_anterior == '1' and pagina > 0:
                         pagina -= 1
-                        principal(pagina)
+                        paginas(pagina)
                         break
                     elif prox_anterior == "0":
                         menuPrincipal()
                     pagina += 1
-        principal(n_pagina)
+        paginas(n_pagina)
             
 def menuConteudosExercicios(tema, idade):
    while True:
@@ -125,7 +115,7 @@ def menuConteudosExercicios(tema, idade):
         if opcao == "1":
             verConteudos(tema, idade)
         elif opcao == "2":
-            praticarexercício(tema, idade) 
+            praticaExercicio(tema, idade) 
         elif opcao == "0":
             break
         else:
@@ -426,8 +416,7 @@ def verConteudos(tema, idade):
         else:
             print(colorir("Por favor, digite apenas números.", cor="red"))
             time.sleep(1)
-
-def praticarexercício(tema, idade):
+def praticaExercicio(tema, idade):
     while True:
         mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
         
@@ -446,12 +435,11 @@ def praticarexercício(tema, idade):
             indice = int(opcao) - 1
             if indice >= 0 and indice < len(conteudosComexercício):
                 nomeConteudo = conteudosComexercício[indice][0]
-                mostrarexercício(tema, idade, nomeConteudo)
+                mostrarExercicio(tema, idade, nomeConteudo)
         else:
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
-
-def mostrarexercício(tema, idade, conteudos):
+def mostrarExercicio(tema, idade, conteudos):
     limparTela()
     
     exercício = CONTEUDOS[tema][idade][conteudos]["exercício"]
@@ -488,5 +476,14 @@ def mostrarexercício(tema, idade, conteudos):
 
     print()
     input(colorir("Pressione Enter para voltar...", cor="yellow"))
-
-menuPrincipal()
+def main():
+    while True:
+        opcao = menuPrincipal()
+        if opcao == "1":
+            menuMatematica()
+        elif opcao == "2":
+            menuInformatica()
+        elif opcao == "3":
+            sobreSistema()
+        
+main()
