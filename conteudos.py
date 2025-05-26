@@ -13,7 +13,8 @@ CONTEUDOS = {
                     )
                 ),
             
-                "exercício": [
+                "exercício": 
+                [
                     {
                         "pergunta": "Conte quantos dedos há em uma mão",
                         "resposta": "5"   
@@ -188,7 +189,7 @@ CONTEUDOS = {
                 ],
             },
             "Números pares e ímpares": {
-                "texto": f'Pense nos números no salão, você pega um deles e reparte de um em um, repare que alguns podem ser agrupados em pares e alguns sobraram 1\n, os que formaram pares, são chamdos de.. par e os que não são ímpares',
+                "texto": f'Quando vc possui balinhas para dividir com seus amigos, imagine que se você conseguir dar duas balinhas para cada amigo, seu número de balinhas é par, do contrario ele é impar',
                 "exercício": [
                     {
                         "pergunta": "O número 10 é ímpar ou par?",
@@ -212,23 +213,105 @@ CONTEUDOS = {
                     },
                 ],
             },
+            "Números Ordinais":{
+                "texto": f'Quando a professora coloca todo mundo em fila, para que ela não se perca ela começa a colocar um número em cada colega, por exemplo, o numero 1 da fila será o primeiro',
+                "exercício":[
+                    {
+                        "pergunta": f'🐷🐱🐼🐯🐭\nQual o primerio animal da fila',
+                        "resposta": "Porco"
+                    },
+                    {
+                        "pergunta":f'🟠🔴⚪🟢\nQual a posição do vermelho',
+                        "resposta":"Segundo"
+                    },
+                    {
+                        "pergunta": f'👩🏻👦🏻👩🏻👦🏻👩🏻👦🏻👩🏻\nQual a ultima posição da menina?',
+                        "resposta": "Setima"
+                    },
+                    {
+                        "pergunta": f'🥇🥈🥉\nQual a posição da medalha de bronze?',
+                        "resposta": "Terceira"
+                    },
+                    {
+                        "pergunta": f'Qual a posição da pessoa 10 de uma fila?',
+                        "resposta": "Décima"    
+                    }
+                ],
+            },
+            "Sequência Númerica e Raciocícinio Lógico":{
+                "texto":"",
+                "exercicio":[
+                    {
+                        "pergunta": f'1-3-5-7-\nQual o próximo número?',
+                        "resposta": "9"
+                    },
+                    {
+                        "pergunta": f'10-20-30-\nQual o próximo número?',
+                        "resposta":"40"
+                    },
+                    {
+                        "pergunta": f'10-8-6-\nQual o próximo número?',
+                        "resposta": "4"
+                    },
+                    {
+                        "pergunta": f'12-9-6-\nQual o próximo número?',
+                        "resposta":"3"
+                    },
+                    {
+                        "pergunta": f'2-4-8-\nQual o próximo número?',
+                        "resposta": "16"
+                    },
+                ],
+            },
         },
         "9-10": {
-            "Tabuada e multiplicação simples": {
-                "texto": "Vamos aprender a tabuada",
+            "Tabuada": {
+                "texto": "Vamos decorar a tabuada!?",
                 "exercício": [
                     {
-                        "pergunta": "pergunta 1",
-                        "resposta": "resposta 1"
-                    }
-                ]
+                        "pergunta": "3x4",
+                        "resposta": "12"
+                    },
+                    {
+                        "pergunta": "4x5",
+                        "resposta":"20"
+                    },
+                    {
+                        "pergunta": "9x10",
+                        "resposta": "90"
+                    },
+                    {
+                        "pergunta": "6x8",
+                        "resposta": "48"
+                    },
+                    {
+                        "pergunta": "12x5",
+                        "resposta": "60"
+                    },
+                ],
             },
             "Divisão simples": {
-                "texto": "Vamos aprender como fazer divisões",
+                "texto": "Vamos aprender como fazer divisões!",
                 "exercício": [
                     {
-                        "pergunta": "pergunta 1",
-                        "resposta": "resposta 1"
+                        "pergunta": "10/10",
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta":"64/8",
+                        "resposta":"8"
+                    },
+                    {
+                        "pergunta":"50/5",
+                        "resposta": "5"
+                    },
+                    {
+                        "pergunta":"36/6",
+                        "resposta":"6"
+                    },
+                    {
+                        "pergunta":"",
+                        "resposta":""
                     }
                 ]
             },

@@ -3,15 +3,27 @@ import os
 import time
 from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
+import random
+import questionary
 
 def limparTela():
     os.system('cls')
+
+def arrowkey(opcoes):
+    acao = questionary.select(
+        "Escolha uma das opções:",
+        choices=opcoes
+    ).ask()
+    return acao
+
+
 def mostrarTitulo(texto):
     limparTela()
     print(colorir("-" * 50, cor="magenta"))
     print(colorir(texto.center(50), cor="magenta", estilo="bold"))
     print(colorir("-" * 50, cor="magenta"))
     print()
+
 def mostrarTextoLinhaQuebrada(texto):
         inicio = 0
         fim = 50
@@ -19,6 +31,7 @@ def mostrarTextoLinhaQuebrada(texto):
             print(texto[inicio:fim])
             inicio += 50
             fim += 50
+
 def mostrarOpcoesIdades():
         print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
         print(colorir("1. 5-6 anos", cor="green"))
@@ -27,6 +40,7 @@ def mostrarOpcoesIdades():
         print()
         print(colorir("0. Voltar", cor="red"))
         print()
+
 def menuPrincipal():
     OPCOESMENUPRINCIPAL = "1230"
     mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
@@ -36,11 +50,10 @@ def menuPrincipal():
     print(colorir("3. Sobre o Sistema", cor="yellow"))
     print(colorir("0. Sair", cor="red"))
     print()
-    opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
-    if opcao not in OPCOESMENUPRINCIPAL:
-        print(colorir("Opção inválida! Tente novamente.", cor="red"))
-        time.sleep(1)
-    return opcao
+    opcao = ["0","1","2","3"]
+    opcao=arrowkey(opcao)
+    return opcao 
+
 def menuMatematica():
     while True:
         mostrarTitulo("MATEMÁTICA DIVERTIDA")
@@ -58,6 +71,7 @@ def menuMatematica():
         else:
             print(colorir("Opção inválida! Tente novamente.", cor="red"))
             time.sleep(1)
+
 def menuInformatica():
     while True:
         mostrarTitulo("INFORMÁTICA DIVERTIDA")
@@ -75,6 +89,7 @@ def menuInformatica():
         else:
             print(colorir("Opção inválida! Tente novamente.", cor="red"))
             time.sleep(1)
+
 def sobreSistema():     
     def menuSobreSistema(pagina):
         MENUSOBRESISTEMAOPCOES = "10"
@@ -96,6 +111,7 @@ def sobreSistema():
             time.sleep(1)
             paginas(pagina)
         return opcao
+    
     lista_paragrafos = list(TEXTOSOBRE)
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
@@ -115,6 +131,7 @@ def sobreSistema():
                 else:
                     pagina += 1
         paginas(n_pagina)
+
 def menuConteudosExercicios(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
@@ -133,6 +150,7 @@ def menuConteudosExercicios(tema, idade):
         else:
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
+
 def conteudoCompleto(tema, idade, conteudo):
     dadosConteudo = CONTEUDOS[tema][idade][conteudo]
     limparTela()
@@ -141,6 +159,7 @@ def conteudoCompleto(tema, idade, conteudo):
     print()
     input(colorir("Pressione Enter para voltar", cor="yellow"))
 def verConteudos(tema, idade):
+
     while True:
         mostrarTitulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
         conteudos = list(CONTEUDOS[tema][idade].items())
@@ -165,6 +184,7 @@ def verConteudos(tema, idade):
         else:
             print(colorir("Por favor, digite apenas números.", cor="red"))
             time.sleep(1)
+
 def praticarExercicio(tema, idade):
     while True:
         mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
@@ -188,6 +208,7 @@ def praticarExercicio(tema, idade):
         else:
             print(colorir("Opção inválida!", cor="red"))
             time.sleep(1)
+
 def mostrarExercicios(tema, idade, conteudos):
     limparTela()
     
@@ -225,6 +246,7 @@ def mostrarExercicios(tema, idade, conteudos):
 
     print()
     input(colorir("Pressione Enter para voltar...", cor="yellow"))
+    
 def main():
     while True:
         opcao = menuPrincipal()
@@ -235,3 +257,4 @@ def main():
         elif opcao == "3":
             sobreSistema()
 main()
+
