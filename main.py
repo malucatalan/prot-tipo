@@ -5,17 +5,10 @@ from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
 import random
 import questionary
+from prompt_toolkit.styles import Style
 
 def limparTela():
     os.system('cls')
-
-def arrowkey(opcoes):
-    acao = questionary.select(
-        "Escolha uma das opções:",
-        choices=opcoes
-    ).ask()
-    return acao
-
 
 def mostrarTitulo(texto):
     limparTela()
@@ -32,34 +25,70 @@ def mostrarTextoLinhaQuebrada(texto):
             inicio += 50
             fim += 50
 
-def mostrarOpcoesIdades():
-        print(colorir("Selecione a faixa etária:", cor="blue", estilo="bold"))
-        print(colorir("1. 5-6 anos", cor="green"))
-        print(colorir("2. 7-8 anos", cor="yellow"))
-        print(colorir("3. 9-10 anos", cor="cyan"))
-        print()
-        print(colorir("0. Voltar", cor="red"))
-        print()
-
+def selecaoMenuIdades():
+        estilo = Style([
+    ('pointer', 'fg:ansimagenta bold'),
+    ('question', 'fg:ansiblue bold'),
+    ('highlighted', 'fg:ansibrightred bold')])
+        
+        escolha= questionary.select(
+        " Selecione a faixa etária",
+        choices=[
+            questionary.Choice(
+                title=[('fg:ansigreen nobold', '5-6 anos')], 
+                value='1'
+            ),
+            questionary.Choice(
+                title=[('fg:ansiyellow nobold','7-8 anos')],
+                value='2'
+            ),
+            questionary.Choice(
+                title=[('fg:ansicyan nobold', '9-10 anos')],
+                value='3'
+            ),
+            questionary.Choice(
+                title=[('fg:ansired nobold', 'Sair')],
+                value='0'
+            ),],instruction=" ",qmark=" ",style=estilo).ask()
+        
+        return escolha
 def menuPrincipal():
-    OPCOESMENUPRINCIPAL = "1230"
-    mostrarTitulo("SISTEMA DE APRENDIZADO INFANTIL")
-    print(colorir("1. Matemática", cor="blue"))
-    print(colorir("2. Informática", cor="green"))
-    print()
-    print(colorir("3. Sobre o Sistema", cor="yellow"))
-    print(colorir("0. Sair", cor="red"))
-    print()
-    opcao = ["0","1","2","3"]
-    opcao=arrowkey(opcao)
-    return opcao 
+
+    mostrarTitulo("CODE E CONTA")
+    estilo = Style([
+        ('pointer', 'fg:ansimagenta bold'),
+        ('highlighted', 'fg:ansibrightred bold')])
+        
+    escolha= questionary.select(
+    " ",
+    choices=[
+        questionary.Choice(
+            title=[('fg:ansiblue nobold', 'Matemática')], 
+            value='1'
+        ),
+        questionary.Choice(
+            title=[('fg:ansigreen nobold','Informática')],
+            value='2'
+        ),
+        questionary.Choice(
+            title=[('fg:ansiyellow nobold', 'Sobre o Sistema')],
+            value='3'
+        ),
+        questionary.Choice(
+            title=[('fg:ansired nobold', 'Sair')],
+            value='0'
+        ),],instruction=" ",qmark=" ",style=estilo).ask()
+    
+    return escolha
+    
+    
+    
 
 def menuMatematica():
     while True:
         mostrarTitulo("MATEMÁTICA DIVERTIDA")
-        mostrarOpcoesIdades()
+        opcao=selecaoMenuIdades()
 
-        opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
         if opcao == "1":
             menuConteudosExercicios("matematica", "5-6")
         elif opcao == "2":
@@ -68,16 +97,13 @@ def menuMatematica():
             menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             main()
-        else:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
 
 def menuInformatica():
     while True:
         mostrarTitulo("INFORMÁTICA DIVERTIDA")
-        mostrarOpcoesIdades()
+        opcao = selecaoMenuIdades()
 
-        opcao = input(colorir("Escolha uma opção (0-3): ", cor="cyan"))
+         
         if opcao == "1":
             menuConteudosExercicios("informatica", "5-6")
         elif opcao == "2":
@@ -86,9 +112,7 @@ def menuInformatica():
             menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
             main()
-        else:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
+        
 
 def sobreSistema():     
     def menuSobreSistema(pagina):
@@ -135,21 +159,32 @@ def sobreSistema():
 def menuConteudosExercicios(tema, idade):
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
-        print(colorir("1. Ver Conteúdos", cor="green"))
-        print(colorir("2. Praticar Exercícios", cor="yellow"))
-        print(colorir("0. Voltar", cor="red"))
+        estilo = Style([
+        ('pointer', 'fg:ansimagenta bold'),
+        ('highlighted', 'fg:ansibrightred bold')])
         
-        opcao = input(colorir("Escolha uma opção (0-2): ", cor="cyan"))
+        escolha= questionary.select(
+        " ",
+        choices=[
+            questionary.Choice(
+                title=[('fg:ansigreen nobold', 'Ver Conteúdos')], 
+                value='1'
+            ),
+            questionary.Choice(
+                title=[('fg:ansiyellow nobold','Praticar Exercícios')],
+                value='2'
+            ),
+            questionary.Choice(
+                title=[('fg:ansired nobold', 'Sair')],
+                value='0'
+            ),],instruction=" ",qmark=" ",style=estilo).ask()
         
-        if opcao == "1":
+        if escolha == "1":
             verConteudos(tema, idade)
-        elif opcao == "2":
+        elif escolha == "2":
             praticarExercicio(tema, idade) 
-        elif opcao == "0":
+        elif escolha  == "0":
             break
-        else:
-            print(colorir("Opção inválida!", cor="red"))
-            time.sleep(1)
 
 def conteudoCompleto(tema, idade, conteudo):
     dadosConteudo = CONTEUDOS[tema][idade][conteudo]
@@ -158,32 +193,53 @@ def conteudoCompleto(tema, idade, conteudo):
     print(dadosConteudo["texto"])
     print()
     input(colorir("Pressione Enter para voltar", cor="yellow"))
+
 def verConteudos(tema, idade):
 
     while True:
         mostrarTitulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
         conteudos = list(CONTEUDOS[tema][idade].items())
+
+        estilo_menu = Style([ 
+            ('pointer', 'fg:ansimagenta bold'),
+            ('question', 'fg:ansiyellow bold'), 
+            ('highlighted', 'fg:ansibrightred bold')
+        ])
         
-        for i, (nome, dados) in enumerate(conteudos, 1):
-            print(colorir(f'{i}. {nome}', cor="cyan"))
-        print()
-        print(colorir("0. Voltar", "red"))
-        print()
-        opcao = input(colorir("Escolha um conteúdo: ", cor="yellow"))
+        escolhas_para_menu = []
+        cor_opcao_padrao = 'fg:ansicyan'
+
+       
+        for i, (nome_do_conteudo, _dados) in enumerate(conteudos):
+            escolha = questionary.Choice(
+                title=[(cor_opcao_padrao, nome_do_conteudo)], 
+                value=str(i)  
+            )
+            escolhas_para_menu.append(escolha)
         
-        if opcao == "0":
-            break
-        if opcao.isdigit():  
-            indice = int(opcao) - 1
-            if 0 <= indice <= len(conteudos):
-                nomeConteudo = conteudos[indice][0]
-                conteudoCompleto(tema, idade, nomeConteudo)
-            else:
-                print(colorir("Número inválido! Escolha uma opção da lista.", cor="red"))
-                time.sleep(1)
+        
+        escolhas_para_menu.append(
+            questionary.Choice(
+                title=[('fg:ansired', "Sair")], 
+                value= "Sair" 
+            )
+        )
+            
+        opcao_valor = questionary.select(
+            "Escolha um conteúdo:", 
+            choices=escolhas_para_menu,
+            style=estilo_menu,
+            qmark=" ", 
+            instruction=" " 
+        ).ask()
+        
+        if opcao_valor == "Sair": 
+            break 
         else:
-            print(colorir("Por favor, digite apenas números.", cor="red"))
-            time.sleep(1)
+            indice_selecionado = int(opcao_valor)
+            nome_conteudo_escolhido = conteudos[indice_selecionado][0] 
+            conteudoCompleto(tema, idade, nome_conteudo_escolhido)
+                
 
 def praticarExercicio(tema, idade):
     while True:
@@ -191,50 +247,103 @@ def praticarExercicio(tema, idade):
         
         conteudosComexercício = list(CONTEUDOS[tema][idade].items())  
 
-        for k, (nome, _) in enumerate(conteudosComexercício, 1):
-            print(colorir(f"{k}. {nome}", cor="cyan"))
-        print()
-        print(colorir("0. Voltar", cor="red"))
-        print()
-        opcao = input(colorir("Escolha um conteúdo para praticar: ", cor="yellow"))
-        
-        if opcao == "0":
-            break
-        elif opcao.isdigit(): 
-            indice = int(opcao) - 1
-            if indice >= 0 and indice < len(conteudosComexercício):
-                nomeConteudo = conteudosComexercício[indice][0]
-                mostrarExercicios(tema, idade, nomeConteudo)
-        else:
-            print(colorir("Opção inválida!", cor="red"))
-            time.sleep(1)
+        estilo_menu = Style([ 
+            ('pointer', 'fg:ansimagenta bold'),
+            ('question', 'fg:ansiyellow bold'), 
+            ('highlighted', 'fg:ansibrightred bold')
+        ])
 
-def mostrarExercicios(tema, idade, conteudos):
-    limparTela()
+        escolhas_para_menu = []
+        cor_opcao_padrao = 'fg:ansicyan'
+
+        for j, (nome_do_conteudo, _) in enumerate(conteudosComexercício):
+            escolha = questionary.Choice(
+                title=[(cor_opcao_padrao, nome_do_conteudo)], 
+                value=str(j)  
+            )
+            escolhas_para_menu.append(escolha)
+        
+        
+        escolhas_para_menu.append(
+            questionary.Choice(
+                title=[('fg:ansired', "Sair")], 
+                value= "Sair" 
+            )
+        )
+            
+        opcao_valor = questionary.select(
+            "Escolha um conteúdo:", 
+            choices=escolhas_para_menu,
+            style=estilo_menu,
+            qmark=" ", 
+            instruction=" " 
+        ).ask()
+        
+        if opcao_valor == "Sair": 
+            break 
+        else:
+            indice_selecionado = int(opcao_valor)
+            nome_conteudo_escolhido = conteudosComexercício[indice_selecionado][0] 
+            mostrarExercicios(tema, idade, nome_conteudo_escolhido)
+                
+
+def mostrarExercicios(tema, idade, nome_do_conteudo):
     
-    exercício = CONTEUDOS[tema][idade][conteudos]["exercício"]
+
+    estilo_menu = Style([ 
+            ('pointer', 'fg:ansimagenta bold'),
+            ('question', 'fg:ansiyellow bold'), 
+            ('highlighted', 'fg:ansibrightred bold')
+        ])
+    cor = 'fg:ansicyan'
+
+    exercicios_lista = CONTEUDOS[tema][idade][nome_do_conteudo]["exercício"]
     
-    mostrarTitulo(f"EXERCÍCIOS: {conteudos.upper()}")
+    mostrarTitulo(f"EXERCÍCIOS: {nome_do_conteudo.upper()}")
     
     quantidade_acertos = 0
     quantidade_erros = 0
     
-    for i, exercicio in enumerate(exercício, 1):
+    for i, exercicio in enumerate(exercicios_lista, 1):
+        limparTela()
+        mostrarTitulo(f"EXERCÍCIO {i} de {len(exercicios_lista)}: {nome_do_conteudo.upper()}")
         print()
         print(colorir(f"Exercício {i}: {exercicio['pergunta']}", cor="yellow"))
-        resposta = input(colorir("Sua resposta: ", cor="cyan"))
+        print()
+
+        alternativas=[]
+
+        for j, texto_alternativa in enumerate(exercicio['alternativas']):
+            escolha = questionary.Choice(
+                title=[(cor, texto_alternativa)], 
+                value=str(j)  
+            )
+            alternativas.append(escolha)
+            
+        resposta = questionary.select(
+            " ", 
+            choices=alternativas,
+            style=estilo_menu,
+            qmark=" ", 
+            instruction=" " 
+        ).ask()
+
+        
         
         if resposta == exercicio["resposta"]:
             print(colorir("Correto!", cor="green"))
             quantidade_acertos += 1 
         else:
+            resposta_correta = int(exercicio["resposta"])
+            texto_resposta_correta=exercicio['alternativas'][resposta_correta]
             quantidade_erros += 1
-            print(colorir(f"Errado. Resposta: {exercicio['resposta']}", cor="red"))
+            print(colorir(f"Errado. A Resposta era : {texto_resposta_correta}", cor="red"))
         
         time.sleep(1)
 
     time.sleep(0.8)
     limparTela()
+
     if quantidade_acertos > 0:
         if quantidade_erros == 0:
             print(colorir("Parabéns! Você acertou todas as repostas.", fundo="bg_green"))
