@@ -476,15 +476,158 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
     },
     "informatica": {
         "5-6": {
-            "Partes do Computador": {
-                "texto": "Principais componentes",
+            "Reconhecimento de Padrões": {
+                "texto": 'Sabe quando a gente vê algo que acontece do mesmo jeito várias vezes? Por exemplo, cores que se repetem: 🔴🟢🔴🟢🔴🟢🔴🟢 \nvocê sabe que depois do verde vem o vermelho, porque elas sempre aparecem na mesma sequencia.\nIsso é um padrão - uma coisa que se repete sempre igual.',
                 "exercício": [ 
                     {
-                        "pergunta": "Pergunta 1",
-                        "resposta": "Resposta 1"
+                        "pergunta": f'🟠🔵🟠🔵🟠🔵🟠🔵\nQual alternativa completa o padrão?',
+                        "alternativas":["a)🟠🟤","b)🔵🟠","c)🟠🔵","d)🟠🟢","E)🔶🔵"],
+                        "resposta": "2"
+                    },
+                    {
+                        "pergunta": f'🟥🟥▫️⚪🟥🟥▫️⚪🟥🟥▫️⚪🟥\nQual alternativa completa o padrão?',
+                        "alternativas":["a)⚪⚪⚪","b)▫️⚪🟥","c)▫️▫️🟠","d)⚪🟥▫️","E)🟥▫️⚪"],
+                        "resposta": "4"
+                    },
+                    {
+                        "pergunta": f'🟩⬛🟩⬛🟩⬛🟩\nQual alternativa completa o padrão?',
+                        "alternativas": ["a)🟥⬛", "b)⬛🟩", "c)🟩⬛", "d)🟧🟩", "e)⬛⬛"],
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta": f'🌳🦊🌳🌳🦊🌳🌳🦊🌳🌳\nQual alternativa completa o padrão?',
+                        "alternativas":["a)🦊🌳🌳","b)🌳🌳🦊","c)🌳🌳🌳","d)🦊🦊🦊","E)🦊🌳🦊"],
+                        "resposta": "0"
+                    },
+                    {
+                        "pergunta": f'Pergunta 🐶🐶🐶🐶🐱🐱🐱🐱🐶🐶🐶🐶🐱🐱🐱🐱🐶🐶\nQual alternativa completa o padrão?',
+                        "alternativas":["a)🐶⚪","b)🐱🐱","c)🐱🐶🐱","d)🐶🐱","E)🐶🐶"],
+                        "resposta": "4"
                     }
                 ]
-            }
+            },
+            "Algoritmo Simples":{
+                    "texto": "🧩 Algoritmo é quando a gente faz as coisas em uma ordem certinha para dar certo! Como escovar os dentes, tomar banho 🚿 ou fazer um sanduíche 🥪.",
+                    "exercício" : [
+                        {
+                            "pergunta": "Qual a ordem certa para ESCOVAR OS DENTES?",
+                            "alternativas":[
+                                "a)🧴 Coloca pasta --> 🪥 Escova --> 💧 Molha a escova --> 🫧 Enxagua a boca",
+                                "b)💧 Molha a escova --> 🧴 Coloca pasta --> 🪥 Escova --> 🫧 Enxagua a boca",
+                                "c) 🪥 Escova --> 🧴 Coloca pasta --> 🫧 Enxagua a boca --> 💧 Molha a escova",
+                                "d) 🫧 Enxagua a boca --> 🧴 Coloca pasta --> 🪥 Escova --> 💧 Molha a escova"
+                                ],
+                                "resposta":"1"
+
+                        },
+                        {
+                            "pergunta": "🥪 Vamos fazer um sanduíche. Qual é o algoritmo correto?",
+                            "alternativas":[
+                                "a) 🍞 Pega o pão --> 🧈 Passa recheio --> 🍞 Coloca outro pão",
+                                "b) 🧈 Coloca recheio --> 😋 Come --> 🍞 Pega o pão",
+                                "c) 🧈 Passa manteiga --> 🍞 Guarda o pão --> 🍽️ Coloca no prato",
+                                "d) 😋 Come o recheio --> 🍞 Coloca o pão --> 🔪 Passa a faca"
+
+                            ]   
+                        },
+                        {
+                            "pergunta": "👟 Qual é o algoritmo para colocar os sapatos?",
+                            "alternativas":[
+                                "a) 🎀 Amarra --> 🧦 Coloca a meia --> 👟 Coloca o sapato",
+                                "b) 👟 Coloca o sapato --> ❌ Tira --> 🎀 Amarra",
+                                "c) 🧦 Coloca a meia --> 👟 Coloca o sapato --> 🎀 Amarra"],
+                            "resposta":"2"
+                        },
+                    ],
+                },
+                "VERDADEIRO ou FALSO":{
+                    "texto":"Você vai ver frases como: 'O leite vem da vaca' — Verdadeiro! ✅\nOu então: “A lua brilha porque tem lâmpada dentro” — Ihh, Falso! ❌",
+                    "exercício":[
+                        {
+                            "pergunta":"Um cachorro mia?",
+                            "alternativas":[
+                                "Verdadeiro! ✅",
+                                "Falso! ❌"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"O sol aparece durante a noite?",
+                            "alternativas":[
+                                "Verdadeiro! ✅",
+                                "Falso! ❌"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"Usamos escova de dentes para pentear o cabelo? ",
+                            "alternativas":[
+                                "Verdadeiro! ✅",
+                                "Falso! ❌"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"O avião serve para voar?",
+                            "alternativas":[
+                                "Verdadeiro! ✅",
+                                "Falso! ❌"],
+                            "resposta":"0"
+                        },
+                        {
+                            "pergunta":"A geladeira ajuda a conservar os alimentos?",
+                            "alternativas":[
+                                "Verdadeiro! ✅",
+                                "Falso! ❌"],
+                            "resposta":"0"
+                        },                        
+                    ],
+                },
+                "Segurança Digital":{
+                    "texto":"Na internet, é importante pensar bem antes de compartilhar alguma coisa.\nAlgumas informações são seguras e podemos mostrar, como nossa cor favorita ou um bichinho de estimação 🐶.\nMas outras são muito pessoais e não devemos contar, como nossa senha 🔒 ou endereço 🏠.",
+                    "exercício":[
+                        {
+                            "pergunta":"O que pode e o que não pode compartilhar na internet?\n"
+                            "Uma foto de um animal de estimação 🐶:",
+                            "alternativas":[
+                                "🟢 Pode compartilhar",
+                                "🔴 Não pode compartilhar"],
+                            "resposta":"0"
+                        },
+                        {
+                            "pergunta":"O que pode e o que não pode compartilhar na internet?\n"
+                            "Seu nome completo ✋:",
+                            "alternativas":[
+                                "🟢 Pode compartilhar",
+                                "🔴 Não pode compartilhar"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"O que pode e o que não pode compartilhar na internet?\n"
+                            "Uma comida favorita 🍕:",
+                            "alternativas":[
+                                "🟢 Pode compartilhar",
+                                "🔴 Não pode compartilhar"],
+                            "resposta":"0"
+                        },
+                        {
+                            "pergunta":"O que pode e o que não pode compartilhar na internet?\n"
+                            "O nome da sua escola 🏫:",
+                            "alternativas":[
+                                "🟢 Pode compartilhar",
+                                "🔴 Não pode compartilhar"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"O que pode e o que não pode compartilhar na internet?\n"
+                            "A cor favorita 💙:",
+                            "alternativas":[
+                                "🟢 Pode compartilhar",
+                                "🔴 Não pode compartilhar"],
+                            "resposta":"0"
+                        },                        
+                    ],
+                },
+                        
+
+            },
+
         }
-    } 
-}
+    }
