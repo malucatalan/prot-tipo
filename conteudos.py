@@ -169,27 +169,27 @@ CONTEUDOS = {
                 "exercício": [
                     {
                         "pergunta": "25 + 10" ,
-                        "alternativas":["a)35","b)15","c)14","d)9","E)6"],
-                        "resposta": "35"
+                        "alternativas":["a)35","b)15","c)14"],
+                        "resposta": "0"
                     },
                     {
                         "pergunta": "55 + 40",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "95"
+                        "alternativas":["a)15","b)95","c)42"],
+                        "resposta": "1"
                     },
                     {
                         "pergunta": "100-50",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "50"
+                        "alternativas":["a)10","b)150","c)50"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": "30 - 15",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "15"
+                        "alternativas":["a)15","b)7","c)14"],
+                        "resposta": "0"
                     },
                     {   "pergunta": "100 - 30",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "70"
+                        "alternativas":["a)130","b)70","c)140"],
+                        "resposta": "1"
                     },
                 ],
             },
@@ -198,58 +198,58 @@ CONTEUDOS = {
                 "exercício": [
                     {
                         "pergunta": "5 x 2",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "10"
+                        "alternativas":["a)10","b)7","c)3",],
+                        "resposta": "0"
                     },
                     {
                         "pergunta": "4 x 3",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        'resposta': "12"
+                        "alternativas":["a)1","b)7","c)12"],
+                        'resposta': "2"
                     },
                     {
                         "pergunta": "5 x 6",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "30"
+                        "alternativas":["a)1","b)11","c)30"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": "6 x 8",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "48"
+                        "alternativas":["a)14","b)48","c)2"],
+                        "resposta": "1"
                     },
                     {
                         "pergunta": "9 x 7",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
+                        "alternativas":["a)63","b)70","c)140"],
                         "resposta": "63"
                     },
                 ],
             },
             "Números pares e ímpares": {
-                "texto": f'Quando vc possui balinhas para dividir com seus amigos, imagine que se você conseguir dar duas balinhas para cada amigo, seu número de balinhas é par, do contrario ele é impar',
+                "texto": f'Quando vc possui balinhas para dividir com seus amigos, imagine que se você conseguir dar duas balinhas para cada amigo, seu número de balinhas é par, do contrario ele é ímpar',
                 "exercício": [
                     {
                         "pergunta": "O número 10 é ímpar ou par?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "par"
+                        "alternativas":["a)Par","b)Ímpar"],
+                        "resposta": "0"
                     },
                     {
                         "pergunta": "O número 23 é ímpar ou par?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "ímpar"
+                        "alternativas":["a)Par","b)Ímpar"],
+                        "resposta": "1"
                     },
                     {
                         "pergunta": "O número 9 é ímpar ou par?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "ímpar"
+                        "alternativas":["a)Par","b)Ímpar"],
+                        "resposta": "1"
                     },
                     {
                         "pergunta": "O número 24 é ímpar ou par?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "par"
+                        "alternativas":["a)Par","b)Ímpar"],
+                        "resposta": "0"
                     },
                     {
                         "pergunta": "O número 13 é ímpar ou par?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "ímpar"
+                        "alternativas":["a)Par","b)Ímpar"],
+                        "resposta": "1"
                     },
                 ],
             },
@@ -258,58 +258,58 @@ CONTEUDOS = {
                 "exercício":[
                     {
                         "pergunta": f'🐷🐱🐼🐯🐭\nQual o primerio animal da fila',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "Porco"
+                        "alternativas":["a)Porco","b)Panda","c)Tigre","d)Rato","E)Gato"],
+                        "resposta": "0"
                     },
                     {
                         "pergunta":f'🟠🔴⚪🟢\nQual a posição do vermelho',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"Segundo"
+                        "alternativas":["a)Primeira","b)Segunda","c)Terceira","d)Quarta","E)Quinta"],
+                        "resposta":"1"
                     },
                     {
                         "pergunta": f'👩🏻👦🏻👩🏻👦🏻👩🏻👦🏻👩🏻\nQual a ultima posição da menina?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "Setima"
+                        "alternativas":["a)Décima","b)Sétima","c)Segunda","d)Quinta","E)Sexta"],
+                        "resposta": "1"
                     },
                     {
                         "pergunta": f'🥇🥈🥉\nQual a posição da medalha de bronze?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "Terceira"
+                        "alternativas":["a)Primeira","b)Segunda","c)Terceira"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": f'Qual a posição da pessoa 10 de uma fila?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "Décima"    
+                        "alternativas":["a)Quinta","b)Primeira","c)Décima","d)Oitava","E)Nona"],
+                        "resposta": "2"    
                     }
                 ],
             },
             "Sequência Númerica e Raciocícinio Lógico":{
-                "texto":"",
+                "texto":"Sequência númerica é como se fosse uma regra para advinhar qual será o próximo passo. Imagine os dias da semana, depois de Segunda sempre vêm Terça, depois Quarta e assim por diante.",
                 "exercicio":[
                     {
                         "pergunta": f'1-3-5-7-\nQual o próximo número?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "9"
+                        "alternativas":["a)10","b)7","c)9","d)12","E)3"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": f'10-20-30-\nQual o próximo número?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"40"
-                    },
-                    {
-                        "pergunta": f'10-8-6-\nQual o próximo número?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "4"
-                    },
-                    {
-                        "pergunta": f'12-9-6-\nQual o próximo número?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
+                        "alternativas":["a)10","b)30","c)15","d)40","E)20"],
                         "resposta":"3"
                     },
                     {
+                        "pergunta": f'10-8-6-\nQual o próximo número?',
+                        "alternativas":["a)8","b)12","c)4","d)10","E)6"],
+                        "resposta": "2"
+                    },
+                    {
+                        "pergunta": f'12-9-6-\nQual o próximo número?',
+                        "alternativas":["a)10","b)7","c)12","d)6","E)3"],
+                        "resposta":"4"
+                    },
+                    {
                         "pergunta": f'2-4-8-\nQual o próximo número?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "16"
+                        "alternativas":["a)10","b)4","c)14","d)16","E)16"],
+                        "resposta": "4"
                     },
                 ],
             },
@@ -319,71 +319,159 @@ CONTEUDOS = {
                 "texto": "Vamos decorar a tabuada!?",
                 "exercício": [
                     {
-                        "pergunta": "3x4",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "12"
+                        "pergunta": "3 x 4",
+                        "alternativas":["a)10","b)7","c)12","d)9","E)6"],
+                        "resposta": "2"
                     },
                     {
-                        "pergunta": "4x5",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"20"
+                        "pergunta": "4 x 5",
+                        "alternativas":["a)25","b)30","c)12","d)15","E)20"],
+                        "resposta":"4"
                     },
                     {
-                        "pergunta": "9x10",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "90"
+                        "pergunta": "9 x 10",
+                        "alternativas":["a)100","b)12","c)60","d)90","E)1"],
+                        "resposta": "3"
                     },
                     {
-                        "pergunta": "6x8",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "48"
+                        "pergunta": "6 x 8",
+                        "alternativas":["a)42","b)36","c)48","d)56","E)40"],
+                        "resposta": "2"
                     },
                     {
-                        "pergunta": "12x5",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "60"
+                        "pergunta": "12 x 5",
+                        "alternativas":["a)10","b)70","c)12","d)50","E)60"],
+                        "resposta": "4"
                     },
                 ],
             },
             "Divisão simples": {
-                "texto": "Vamos aprender como fazer divisões!",
+                "texto": "Não sabe quando você têm algumas balas e quer dividir com seus amigos? Divisão funciona igualzinho na matemática",
                 "exercício": [
                     {
-                        "pergunta": "10/10",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
+                        "pergunta": "10 / 10",
+                        "alternativas":["a)10","b)1","c)20","d)0","E)21"],
                         "resposta": "1"
                     },
                     {
-                        "pergunta":"64/8",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"8"
+                        "pergunta":"64 / 8",
+                        "alternativas":["a)8","b)70","c)56","d)9","E)5"],
+                        "resposta":"0"
                     },
                     {
-                        "pergunta":"50/5",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "5"
+                        "pergunta":"50 / 5",
+                        "alternativas":["a)50","b)45","c)10","d)5","E)12"],
+                        "resposta": "3"
                     },
                     {
-                        "pergunta":"36/6",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"6"
+                        "pergunta":"36 / 6",
+                        "alternativas":["a)12","b)28","c)14","d)10","E)6"],
+                        "resposta":"4"
                     },
                     {
-                        "pergunta":"",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":""
+                        "pergunta":"72 / 8",
+                        "alternativas":["a)10","b)7","c)8","d)9","E)6"],
+                        "resposta":"2"
                     }
                 ]
             },
-            "Números decimais": {
-                "texto": "Vamos aprender como funcionam os números decimais",
+            "Lógica matemática": {
+                "texto": "Lógica matemática é como um superpoder, que desenvolvemos para resolver probleminhas mais complexos",
                 "exercício": [
                     {
-                        "pergunta": "pergunta 1",
-                        "resposta": "resposta 1"
-                    }
-                ]
-            }
+                        "pergunta": "João tem  duas balas a mais que Ana, se Ana tem 10 balas. Quantas balas João possui?",
+                        "alternativas":["a)10","b)12","c)8","d)15","E)20"],
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta":"José consegue pular 2 vezes mais corda que Maria, se Maria consegue pular 10 vezes. Quantas vezes José consegue pular?",
+                        "alternativas":["a)14","b)5","c)8","d)15","E)20"],
+                        "resposta": "4"
+                    },
+                    {
+                        "pergunta":"Um macaquinho come metade da quantidade que um Gorila, se o gorila come 10 bananas. Quantas bananas come o macaquinho?",
+                        "alternativas": ["a)2","b)5","c)20","d)12","E)10"],
+                        "resposta": "1"
+                    },
+                    {
+                        "pergunta": "Se Leonardo tem 50 lápis, e Rafael tem 10 lápis a menos. Quantos lápis Rafael tem?",
+                        "alternativas": ["a)20","b)30","c)40","d)50","E)60"],
+                        "resposta": "2"
+                    },
+                    {
+                        "pergunta": "Manuela vende uma limonada por 2 reais, José por 4, Maria por 8. Por quanto Júlia vende a sua limonada?",
+                        "alternativas": ["a)20","b)16","c)10","d)8","E)4"],
+                        "respostas": "1"
+                    },
+                ],
+            },
+            "Matemática Financeira":{
+                "texto": "Toda vez que o seu pai vai ao mercado comprar arroz, feijão ele precisa ver o preço e calcular se ele pode ou não comprar. Vamos ver como funciona?",
+                "exercício":[
+                    {
+                        "pergunta": '''
+
+🍎=  R$10,00
+🍉 = R$20,00
+🍇 = R$7,50
+🍍=  R$14,00
+
+Se você comprar 4 maças, e entregar uma nota de 50 reais, quanto você deverá receber de troco?''',
+                        "alternativas": ["a)25","b)16","c)10","d)18","E)20"],
+                        "resposta": "2"
+                    },
+                    {
+                        "pergunta": '''
+
+🍔 = R$15,00
+🍕 = R$10,00
+🍟 = R$5,00
+
+Se você comprar 4 hamburguers e 2 batatas fritas. Com quantas notas de 10 reais, você irá pagar?
+''',
+                        "alternativas": ["a)2","b)6","c)1","d)8","E)7"],
+                        "resposta": "4"
+                    },
+                    {
+                        "pergunta": '''
+
+🍫 = R$5,00
+🍬= R$6,00
+🍭= R$2,00
+🍮= R$13,00
+
+Se você tivesse apenas 28,00 reais. Qual o máximo de chocolates que você conseguiria comprar, sabendo que você vai comprar um pudim.
+''',
+                        "alternativas": ["a)2","b)6","c)1","d)3","E)4"],
+                        "resposta": "3",
+                    },
+                    {
+                        "pergunta": '''
+
+⚽= R$20,00
+🏀= R$30,00
+🏈= R$35,00
+⚾= R$5,00
+
+Quantas bolas de futebol americano seria posível comprar com o preço de 7 bolas de futebol?
+''',
+                        "alternativas": ["a)4","b)2","c)1","d)8","E)6"],
+                        "resposta": "0",
+                    },
+                    {
+                        "pergunta": '''
+
+📱= R$1500,00
+⌚= R$1000,00
+💻= R$4000,00
+
+Você quer comprar um presente para a sua mae e para o seu pai, mas você só possui 5500,00 reais. Para que, não sobre nada, qual deve ser a sua escolha?
+''',
+                        "alternativas": ["a)Um celular e um relogio","b)Dois celulares","c)Dois computadores","d)Um celular e um computador","E)Um relógio e um computador"],
+                        "resposta": "3",
+                    },
+                ],
+            },
         },
     },
     "informatica": {

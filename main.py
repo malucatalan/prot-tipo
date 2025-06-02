@@ -12,9 +12,9 @@ def limparTela():
 
 def mostrarTitulo(texto):
     limparTela()
-    print(colorir("-" * 50, cor="magenta"))
-    print(colorir(texto.center(50), cor="magenta", estilo="bold"))
-    print(colorir("-" * 50, cor="magenta"))
+    print(colorir("-" * 80, cor="magenta"))
+    print(colorir(texto.center(80), cor="magenta", estilo="bold"))
+    print(colorir("-" * 80, cor="magenta"))
     print()
 
 def mostrarTextoLinhaQuebrada(texto):
@@ -54,7 +54,16 @@ def selecaoMenuIdades():
         return escolha
 def menuPrincipal():
 
-    mostrarTitulo("CODE E CONTA")
+    mostrarTitulo('''
+   _____ ____  _____  ______   ______    _____ ____  _   _ _______       
+  / ____/ __ \|  __ \|  ____| |  ____|  / ____/ __ \| \ | |__   __|/\    
+ | |   | |  | | |  | | |__    | |__    | |   | |  | |  \| |  | |  /  \   
+ | |   | |  | | |  | |  __|   |  __|   | |   | |  | | . ` |  | | / /\ \  
+ | |____ |__| | |__| | |____  | |____  | |____ |__| | |\  |  | |/ ____ \ 
+  \_____\____/|_____/|______| |______|  \_____\____/|_| \_|  |_/_/    \_|
+                                                                         
+                                                                         
+''')
     estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
         ('highlighted', 'fg:ansibrightred bold')])
@@ -79,10 +88,7 @@ def menuPrincipal():
             value='0'
         ),],instruction=" ",qmark=" ",style=estilo).ask()
     
-    return escolha
-    
-    
-    
+    return escolha  
 
 def menuMatematica():
     while True:
@@ -116,30 +122,55 @@ def menuInformatica():
 
 def sobreSistema():     
     def menuSobreSistema(pagina):
-        MENUSOBRESISTEMAOPCOES = "10"
+
+        estilo = Style([
+        ('pointer', 'fg:ansimagenta bold'),
+        ('highlighted', 'fg:ansibrightred bold')])
+
         amostra_pagina = pagina + 1
         print()
         print(colorir(f"\t\tPágina {amostra_pagina}", cor="black", fundo="bg_white"))
-        print(colorir(colorir("Enter. Próxima", cor="green")))
-        if amostra_pagina > 1:
-            print(colorir("1. Anterior", cor="yellow"))
-        print(colorir("0. Voltar", cor="red"))
 
-        opcao = input(colorir(">", cor="blue"))
-        if amostra_pagina == 1 and opcao not in MENUSOBRESISTEMAOPCOES[1]:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
-            paginas(pagina)
-        if opcao not in MENUSOBRESISTEMAOPCOES:
-            print(colorir("Opção inválida! Tente novamente.", cor="red"))
-            time.sleep(1)
-            paginas(pagina)
+        if amostra_pagina > 1:
+            opcao = questionary.select(
+        " ",
+        choices=[
+            questionary.Choice(
+                title=[('fg:ansigreen nobold', 'Próxima Página')], 
+                value=''
+            ),
+            questionary.Choice(
+                title=[('fg:ansiyellow nobold', 'Anterior')], 
+                value='1'
+            ),
+            questionary.Choice(
+                title=[('fg:ansired nobold','Sair')],
+                value='0'
+            ),
+        ],instruction=" ",qmark=" ",style=estilo).ask()
+        else:
+            opcao = questionary.select(
+        " ",
+        choices=[
+            questionary.Choice(
+                title=[('fg:ansigreen nobold', 'Próxima Página')], 
+                value=''
+            ),
+            questionary.Choice(
+                title=[('fg:ansired nobold','Sair')],
+                value='0'
+            ),
+            
+        ],instruction=" ",qmark=" ",style=estilo).ask()
+
         return opcao
     
     lista_paragrafos = list(TEXTOSOBRE)
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
+
     while True:
+
         def paginas(pagina):
             while pagina < ultima_pagina:
                 mostrarTitulo("Sobre o Sistema")
@@ -190,9 +221,9 @@ def conteudoCompleto(tema, idade, conteudo):
     dadosConteudo = CONTEUDOS[tema][idade][conteudo]
     limparTela()
     mostrarTitulo(f"{conteudo.upper()}")
-    print(dadosConteudo["texto"])
+    print(colorir(dadosConteudo["texto"],cor="yellow"))
     print()
-    input(colorir("Pressione Enter para voltar", cor="yellow"))
+    input(colorir("Pressione Enter para voltar", cor="cyan"))
 
 def verConteudos(tema, idade):
 
