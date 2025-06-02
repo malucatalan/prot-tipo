@@ -77,28 +77,28 @@ CONTEUDOS = {
                 "exercício": [
                     {
                         "pergunta": f'🍓🍓🍓🍓+🍌🍌🍌🍌\nQuantos morangos e bananas há?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "8"
+                        "alternativas":["a)15","b)10","c)8","d)9","E)16"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": f'🍌🍌🍌🍌+🍓🍓🍓🍓+🍎🍎🍎🍎\nQuantas frutas há?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "12"
+                        "alternativas":["a)10","b)17","c)14","d)12","E)16"],
+                        "resposta": "3"
                     },
                     {
-                        "pergunta": f'🍎🍎🍎🍎🍎🍎🍎+🍓🍓🍓🍓🍓\nQuantas frutas há?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "12"
+                        "pergunta": f'🍎🍎🍎🍎🍎🍎🍎+🍓🍓🍓🍓🍓🍓🍓🍓🍓\nQuantas frutas há?',
+                        "alternativas":["a)14","b)17","c)15","d)19","E)16"],
+                        "resposta": "4"
                     },
                     {
                         "pergunta": f'1 + 5',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "6"
+                        "alternativas":["a)4","b)7","c)6","d)9","E)15"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": f'3 + 7',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "10"
+                        "alternativas":["a)10","b)3","c)4","d)9","E)37"],
+                        "resposta": "0"
                     },
                 ],
             },
@@ -137,28 +137,28 @@ CONTEUDOS = {
                 "exercício":[
                     {
                         "pergunta":"5 ou 8\nQual é maior?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"8"
+                        "alternativas":["a)8","b)5"],
+                        "resposta":"0"
                     },
                     {
                         "pergunta": "10 ou 5\nQual é maior?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "10"
+                        "alternativas":["a)5","b)10"],
+                        "resposta": "1"
                     },
                     {
-                        "pergunta": "20 ou 15\nQual é maior?",
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "20"
+                        "pergunta": "20 ou 15\nQual é menor?",
+                        "alternativas":["a)15","b)20"],
+                        "resposta": "0"
                     },
                     {
                         "pergunta": f'10- -12-13\nQual é o número que esta faltando?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "11"
+                        "alternativas":["a)12","b)10","c)11","d)13"],
+                        "resposta": "2"
                     },
                     {
                         "pergunta": f'5-6-7\nQual número vem antes do 5?',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta": "4"
+                        "alternativas":["a)4","b)7","c)6"],
+                        "resposta": "0"
                     },
                 ],
             },
@@ -169,7 +169,7 @@ CONTEUDOS = {
                 "exercício": [
                     {
                         "pergunta": "25 + 10" ,
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
+                        "alternativas":["a)35","b)15","c)14","d)9","E)6"],
                         "resposta": "35"
                     },
                     {
