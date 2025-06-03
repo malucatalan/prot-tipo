@@ -175,11 +175,10 @@ def sobreSistema():
                 main()
                 return
             pagina += 1
-        
+        main()
     lista_paragrafos = list(TEXTOSOBRE)
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
-
     paginar(n_pagina)
 
 def menuConteudosExercicios(tema, idade):
