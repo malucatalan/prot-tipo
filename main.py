@@ -122,16 +122,15 @@ def menuInformatica():
 
 def sobreSistema():     
     def menuSobreSistema(pagina):
-
         estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
         ('highlighted', 'fg:ansibrightred bold')])
 
-        amostra_pagina = pagina + 1
+        pagina_texto = pagina + 1
         print()
-        print(colorir(f"\t\tPágina {amostra_pagina}", cor="black", fundo="bg_white"))
+        print(colorir(f"\t\tPágina {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white"))
 
-        if amostra_pagina > 1:
+        if pagina_texto > 1:
             opcao = questionary.select(
         " ",
         choices=[
@@ -164,28 +163,24 @@ def sobreSistema():
         ],instruction=" ",qmark=" ",style=estilo).ask()
 
         return opcao
-    
+    def paginar(pagina):
+        while pagina < ultima_pagina:
+            mostrarTitulo("Sobre o Sistema")
+            if pagina in [n for n in range(0, ultima_pagina)]:
+                mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
+            prox_anterior = menuSobreSistema(pagina)
+            if prox_anterior == '1' and pagina > 0:
+                paginar(pagina - 1)
+            elif prox_anterior == "0":
+                main()
+                return
+            pagina += 1
+        
     lista_paragrafos = list(TEXTOSOBRE)
     n_pagina = 0
     ultima_pagina = len(lista_paragrafos)
 
-    while True:
-
-        def paginas(pagina):
-            while pagina < ultima_pagina:
-                mostrarTitulo("Sobre o Sistema")
-                if pagina in [n for n in range(0, ultima_pagina)]:
-                    mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
-                prox_anterior = menuSobreSistema(pagina)
-                if prox_anterior == '1' and pagina > 0:
-                    pagina -= 1
-                    paginas(pagina)
-                elif prox_anterior == "0":
-                    main()
-                    return
-                else:
-                    pagina += 1
-        paginas(n_pagina)
+    paginar(n_pagina)
 
 def menuConteudosExercicios(tema, idade):
    while True:
