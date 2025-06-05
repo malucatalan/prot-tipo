@@ -6,7 +6,7 @@ TEXTOSOBRE = (" O algoritmo de Code e Conta funciona de forma intuitiva"
         
         " Estes menus solicitam a requisição do usuário e gerenciam "
         "o que será apresentado do conteudo, que é armazenado no dicionário CONTEUDOS. "
-        "Neste dicionário, existe outros que armazenam o conteúdo e exercícios a ser solicitado.",
+        "Neste dicionário, existem outros que armazenam o conteúdo e exercícios a ser solicitado.",
 
         " Assim, de forma colorida e eficiente, nosso projeto garante a solidificação do aprendizado da criança.",
 
