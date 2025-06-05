@@ -390,5 +390,7 @@ def main():
             menuInformatica()
         elif opcao == "3":
             sobreSistema()
+        elif opcao == "0":
+            exit()
 main()
 
