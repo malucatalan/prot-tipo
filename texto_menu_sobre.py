@@ -10,7 +10,7 @@ TEXTOSOBRE = (" O algoritmo de Code e Conta funciona de forma intuitiva"
 
         " Assim, de forma colorida e eficiente, nosso projeto garante a solidificação do aprendizado da criança.",
 
-        " "*25+"COMO UTILIZAR",
+        "COMO UTILIZAR".center(80),
 
         " Ao abrir o programa, haverá o menu de opções, onde haverá as duas matérias. "
         "Selecione a devida opção para acessar o menu de idades.",

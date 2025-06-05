@@ -17,13 +17,13 @@ def mostrarTitulo(texto):
     print(colorir("-" * 80, cor="magenta"))
     print()
 
-def mostrarTextoLinhaQuebrada(texto):
+def mostrarTextoLinhaQuebrada(texto, max_carac):
         inicio = 0
-        fim = 50
+        fim = max_carac
         while inicio < len(texto):
             print(texto[inicio:fim])
-            inicio += 50
-            fim += 50
+            inicio += max_carac
+            fim += max_carac
 
 def selecaoMenuIdades():
         estilo = Style([
@@ -128,7 +128,7 @@ def sobreSistema():
 
         pagina_texto = pagina + 1
         print()
-        print(colorir(f"\t\tPágina {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white"))
+        print(colorir(f"Página {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white").center(92))
 
         if pagina_texto > 1:
             opcao = questionary.select(
@@ -167,7 +167,7 @@ def sobreSistema():
         while pagina < ultima_pagina:
             mostrarTitulo("Sobre o Sistema")
             if pagina in [n for n in range(0, ultima_pagina)]:
-                mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
+                mostrarTextoLinhaQuebrada(lista_paragrafos[pagina], 80)
             prox_anterior = menuSobreSistema(pagina)
             if prox_anterior == '1' and pagina > 0:
                 paginar(pagina - 1)
