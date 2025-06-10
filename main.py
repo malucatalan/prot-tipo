@@ -8,9 +8,11 @@ import questionary
 from prompt_toolkit.styles import Style
 
 def limparTela():
+    """limparTela limpa o terminal."""
     os.system('cls')
 
-def mostrarTitulo(texto):
+def mostrarTitulo(texto:str):
+    """mostrarTitulo formata e imprime o texto como título no terminal."""
     limparTela()
     print(colorir("-" * 80, cor="magenta"))
     print(colorir(texto.center(80), cor="magenta", estilo="bold"))
@@ -18,6 +20,8 @@ def mostrarTitulo(texto):
     print()
 
 def mostrarTextoLinhaQuebrada(texto, max_carac):
+        """mostrarTextoLinhaQuebrada quebra a linha do texto
+          a partir do número máximo de caracteres."""
         inicio = 0
         fim = max_carac
         while inicio < len(texto):
@@ -119,14 +123,19 @@ def menuInformatica():
         elif opcao == "0":
             main()
         
+def sobreSistema():
+    """sobreSistema apresenta o sistema para o usuário."""   
 
-def sobreSistema():     
-    def menuSobreSistema(pagina):
+    def menuSobreSistema(indice_pagina):
+        """menuSobreSistema recebe o indice da página atual e imprime o número da página. 
+        Por fim, retorna as opções selecionadas pelo usuário."""
+
         estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
         ('highlighted', 'fg:ansibrightred bold')])
 
-        pagina_texto = pagina + 1
+        ultima_pagina = len(conjunto_paragrafos)
+        pagina_texto = indice_pagina + 1
         print()
         print(colorir(f"Página {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white").center(92))
 
@@ -161,25 +170,22 @@ def sobreSistema():
             ),
             
         ],instruction=" ",qmark=" ",style=estilo).ask()
-
         return opcao
-    def paginar(pagina):
-        while pagina < ultima_pagina:
+    def paginar(paragrafos:list[str], indice_paragrafo=0):
+        """paginar pagina cada paragrafo de um conjunto de Strings."""
+
+        while indice_paragrafo < len(paragrafos):
             mostrarTitulo("Sobre o Sistema")
-            if pagina in [n for n in range(0, ultima_pagina)]:
-                mostrarTextoLinhaQuebrada(lista_paragrafos[pagina], 80)
-            prox_anterior = menuSobreSistema(pagina)
-            if prox_anterior == '1' and pagina > 0:
-                paginar(pagina - 1)
-            elif prox_anterior == "0":
+            mostrarTextoLinhaQuebrada(paragrafos[indice_paragrafo], 80)
+            opcao = menuSobreSistema(indice_paragrafo)
+            if opcao == '1' and indice_paragrafo > 0:
+                paginar(paragrafos, indice_paragrafo - 1)
+            elif opcao == "0":
                 main()
                 return
-            pagina += 1
-        main()
-    lista_paragrafos = list(TEXTOSOBRE)
-    n_pagina = 0
-    ultima_pagina = len(lista_paragrafos)
-    paginar(n_pagina)
+            indice_paragrafo += 1
+    conjunto_paragrafos = list(TEXTOSOBRE)
+    paginar(conjunto_paragrafos)
 
 def menuConteudosExercicios(tema, idade):
    while True:
