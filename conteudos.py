@@ -536,9 +536,30 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                             "alternativas":[
                             "a) 🎀 Amarra --> 🧦 Coloca a meia --> 👟 Coloca o sapato",
                             "b) 👟 Coloca o sapato --> ❌ Tira --> 🎀 Amarra",
-                            "c) 🧦 Coloca a meia --> 👟 Coloca o sapato --> 🎀 Amarra"],
+                            "c) 🧦 Coloca a meia --> 👟 Coloca o sapato --> 🎀 Amarra"
+                            ],
                             "resposta":"2"
                         },
+                        {
+                            "pergunta": "📅 Como organizar seu dia para estudar? 📚☀️",
+                            "alternativas": [
+                                "a) ☕ Toma café --> 🛋️ Descansa --> 📖 Estuda --> ⏰ Acorda"
+                                "b) 📖 Estuda --> ⏰ Acorda --> ☕ Toma café --> 🛋️ Descansa",
+                                "c) 🛋️ Descansa --> ☕ Toma café --> 📖 Estuda --> ⏰ Acorda",
+                                "d) ⏰ Acorda --> ☕ Toma café --> 📖 Estuda --> 🛋️ Descansa"
+                            ],
+                            "resposta": "3"
+                        },
+                        {
+                            "pergunta": "🍳 Qual é a ordem certa para preparar um ovo cozido? 🥚💧",
+                            "alternativas": [
+                                "a) 🥄 Tira o ovo da água --> 🥚 Coloca o ovo na água --> ⏳ Espera cozinhar",
+                                "b) ⏳ Espera cozinhar --> 🥚 Coloca o ovo na água --> 🥄 Tira o ovo da água",
+                                "a) 🥚 Coloca o ovo na água --> ⏳ Espera cozinhar --> 🥄 Tira o ovo da água",
+                                "d) 🥚 Coloca o ovo na água --> 🥄 Tira o ovo da água --> ⏳ Espera cozinhar"
+                            ],
+                            "resposta": "2"
+                        }
                         ]
                     },
                     "Verdadeiro ou Falso":{
@@ -573,7 +594,7 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                     }
                 },
             "7-8":  {
-                    "Identificação de Padrões": {
+                    "Identificação de Padrões":{
                     "texto":"Identificar padrões é observar e descobrir o que se repete. Pode ser uma sequência de cores, formas, números ou letras.\nQuando o padrão é mais difícil, ele pode mudar um pouco a cada vez, e precisamos prestar bem atenção para entender a regra.",
                     "exercício": [
                         {
@@ -603,35 +624,35 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                         },
                         ]
                     },
-                    "O que é Hardware e Software":{
+                    "Hardware/Software":{
                     "texto":"Hardware é tudo que você pode tocar no computador, como teclado e mouse.\n"
-                    "Software é o que esta dentro do computador, como jogos e programas que usamos para densenhar ou escrever.",
+                            "Software é o que esta dentro do computador, como jogos e programas que usamos para densenhar ou escrever.",
                     "exercício":[
                         {
                             "pergunta":"O monitor 🖥️, que mostra as imagens do computador, é ____________________",
-                            "alternativas":["🖥️ Hardware","🌐 Software"],
+                            "alternativas":["🖥️  Hardware","🌐 Software"],
                             "resposta":"0"
                         },
                         {
                             "pergunta":"O navegador de internet 🌐 é um tipo de ____________________:",
-                            "alternativas":["🖥️ Hardware","🌐 Software"],
+                            "alternativas":["🖥️  Hardware","🌐 Software"],
                             "resposta":"1"
                         },
                         {
-                            "pergunta":"Classifique como Hardware ou Software\n"
+                            "pergunta":"Classifique como  Hardware ou Software\n"
                             "A Impressora 🖨️ é um exemplo de = ________:",
-                            "alternativas":["🖥️ Hardware","🌐 Software"],
+                            "alternativas":["🖥️  Hardware","🌐 Software"],
                             "resposta":"0"
                         },
                         {
                             "pergunta":"O mouse 🖱️ é um exemplo de ____________________",
-                            "alternativas":["🖥️ Hardware","🌐 Software"],
+                            "alternativas":["🖥️  Hardware","🌐 Software"],
                             "resposta":"0"
 
                         },
                         {
                             "pergunta":"O aplicativo WhatsApp 📱 no celular é um ____________________",
-                            "alternativas":["🖥️ Hardware","🌐 Software"],
+                            "alternativas":["🖥️  Hardware","🌐 Software"],
                             "resposta":"1"
 
                         },
@@ -682,6 +703,159 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                         },
                     ]
                 }
+            },
+            "9-10": {"Algoritmo com Condições: SE, ENTÃO":{
+                     "texto":"Um algoritmo é uma sequência de passos para resolver um problema ou fazer uma tarefa. Às vezes, usamos a palavrinha mágica SE... ENTÃO... para decidir o que fazer em cada situação.\n"
+                             "Por exemplo:"
+                             "SE está chovendo, ENTÃO pego o guarda-chuva ☔."
+                             "SE estou com fome, ENTÃO faço um lanche 🥪."
+                             "\nÉ como tomar decisões com regras simples! ✅",
+                     "exercício":[
+                        {
+                            "pergunta": "SE estiver frio, ENTÃO coloco o casaco.\nEstá frio hoje. O que acontece?",
+                            "alternativas": ["a) Tira o casaco", "b) Não faz nada", "c) Coloca o casaco", "d) Vai para a praia"],
+                            "resposta": "2"
+                        },
+                        {
+                            "pergunta": "SE eu já almocei, ENTÃO posso comer sobremesa.\nAinda não almocei. O que acontece?",
+                            "alternativas": ["a) Como a sobremesa", "b) Espero para comer depois", "c) Não como nada", "d) Janto"],
+                            "resposta": "1"
+                        },
+                        {
+                            "pergunta": "SE está chovendo, ENTÃO fico em casa.\nHoje não está chovendo. O que faço?",
+                            "alternativas": ["a) Fico em casa", "b) Saio para brincar", "c) Tomo banho de chuva", "d) Volto a dormir"],
+                            "resposta": "1"
+                        },
+                        {
+                            "pergunta": "SE a previsão é de chuva, ENTÃO levo guarda-chuva.\nA previsão é de sol. O que faço?",
+                            "alternativas": ["a) Levo o guarda-chuva", "b) Não levo o guarda-chuva", "c) Fico em casa", "d) Uso casaco"],
+                            "resposta": "1"
+                        },
+                        {
+                            "pergunta": "SE são 21h ou mais, ENTÃO é hora de dormir.\nAgora são 22h. O que devo fazer?",
+                            "alternativas": ["a) Brincar mais um pouco", "b) Ver TV", "c) Dormir", "d) Comer doce"],
+                            "resposta": "2"
+                        }
+                    ]
+                },
+                    "Lógica Computacional":{
+                    "texto":"Lógica computacional é como ensinar o computador a tomar decisões, usando as palavras -verdadeiro- e -falso-.\n"
+
+                            "Usamos palavrinhas como:\n"
+
+                            "E → as duas coisas precisam ser verdadeiras.\n"
+                            "👉 Exemplo: Está sol E é sábado → Podemos ir ao parque!\n"
+
+                            "OU → só uma das coisas precisa ser verdadeira.\n"
+                            "👉 Exemplo: Estou com fome OU é hora do lanche → Vou comer!\n"
+
+                            "NÃO → muda o sentido da frase.\n"
+                            "👉 Exemplo: NÃO está chovendo → Então posso sair sem guarda-chuva!",
+                    "exercício":[
+                        {
+                            "pergunta":"Complete a Tabela Verdade\n"
+                                        "'5 > 3' E '2 < 4?'= ?",
+                            "alternativas":["Verdadeiro! ✅","Falso! ❌"],
+                            "resposta":"0"
+                        },
+                        {
+                            "pergunta":"Complete a Tabela Verdade\n"
+                                        "'6 = 6' OU '7 < 2'= ?",
+                            "alternativas":["Verdadeiro! ✅","Falso! ❌"],
+                            "resposta":"0"
+                        },
+                        {
+                            "pergunta":"Complete a Tabela Verdade\n"
+                                        "'NÃO ( 4 > 2 )'",
+                            "alternativas":["Verdadeiro! ✅","Falso! ❌"],
+                            "resposta":"1"
+                        },
+                        {
+                            "pergunta":"Complete a Tabela Verdade\n"
+                            "A frase: 'Hoje está ensolarado' E 'Eu tenho um chapéu.'\n"
+                            "Qual das alternativas 'NEGA' corretamente essa frase?",
+                            "alternativas": [                                          
+                                "a) Hoje NÃO está ensolarado OU eu NÃO tenho um chapéu.", 
+                                "b) Hoje está ensolarado E eu tenho um chapéu.", 
+                                "c) Hoje está ensolarado OU eu tenho um chapéu.", 
+                                "d) Hoje NÃO está ensolarado E eu NÃO tenho um chapéu." 
+                                             ],
+                            "resposta": "0"
+                        },
+                        {
+                            "pergunta":"Complete a Tabela Verdade\n"
+                            "A frase: 'Eu comi o lanche' E 'Eu bebi suco.'\n"
+                            "Qual das alternativas 'NEGA' corretamente essa frase?",
+                            "alternativas": [
+                                "a) Eu comi o lanche E bebi suco.", 
+                                "b) Eu comi o lanche OU bebi suco.", 
+                                "c) Eu NÃO comi o lanche OU eu NÃO bebi suco.", 
+                                "d) Eu NÃO comi o lanche E NÃO bebi suco."
+                                             ],
+                            "resposta": "0"
+                        },                        
+                    ]
+                },
+                    "Avaliação de Fontes Confiáveis":{
+                    "texto":"Quando lemos algo, precisamos verificar se a fonte (o site ou livro) é confiável. Se uma informação estiver errada, como um ano de nascimento ou um fato importante, podemos saber que não é confiável. Para isso, devemos buscar fontes que sejam bem conhecidas e que sempre tragam informações corretas.",
+                    "exercício":[
+                        {
+                            "pergunta":"Fonte 1 (Site: Instituto de História Brasileira):\n"
+                            "Monteiro Lobato nasceu em 18 de abril de 1882, em Taubaté (SP). Foi um dos mais importantes escritores da literatura infantil brasileira, criador do Sítio do Picapau Amarelo. Morreu em 4 de julho de 1948.\n"
+                            "\nFonte 2 (Site: curiosidadesmentirosas.com.br ):\n"
+                            "Monteiro Lobato nasceu em 1900 e escreveu livros infantis inspirados em desenhos animados. Morava no Rio de Janeiro e trabalhou com cinema.\n"
+                            "\nQual fonte é confiavel?:",
+                            "alternativas":[
+                                "a) Fonte 1, porque as informações estão corretas e detalhadas.",
+                                "b) Fonte 2, porque ela tem mais informações sobre o autor.",
+                                "c) Nenhuma das fontes, pois ambas estão erradas em alguns detalhes.",
+                                "d) Fonte 1, porque vem de um site conhecido e confiável."
+                            ],
+                            "resposta": "0"
+                        },
+                        {
+                            "pergunta": "Por que é importante comparar informações de diferentes fontes?",
+                            "alternativas": [
+                                "a) Para descobrir se todo mundo está dizendo a mesma coisa.",
+                                "b) Para escolher a informação mais legal.",
+                                "c) Para ver se a informação está correta e verificar se é confiável.",
+                                "d) Para encontrar a fonte que tenha mais imagens e vídeos interessantes."
+                            ],
+                            "resposta": "2"
+                        },
+                        {
+                            "pergunta": "O que significa 'site confiável'?",
+                            "alternativas": [
+                                "a) Um site que tem informações verificadas e bem pesquisadas.",
+                                "b) Um site com muitas cores e fontes legais.",
+                                "c) Um site que fala sobre qualquer coisa.",
+                                "d) Um site que tem conteúdo escrito por especialistas ou fontes reconhecidas."
+                            ],
+                            "resposta": "0"
+                        },
+                        {
+                            "pergunta": "Como podemos saber se um site é confiável?",
+                            "alternativas": [
+                                "a) Buscando o nome do site nas redes sociais.",
+                                "b) Acreditando no que o site diz, sem precisar verificar nada.",
+                                "c) Checando se o site tem muitos anúncios e imagens coloridas.",
+                                "d) Verificando se o site é feito por uma empresa ou instituição conhecida e respeitada."
+                            ],
+                            "resposta": "3"
+                        },
+                        {
+                            "pergunta": "Por que é importante sempre verificar as informações que encontramos na internet?",
+                            "alternativas": [
+                                "a) Porque nem tudo o que lemos é verdade, e algumas informações podem ser erradas ou falsas.",
+                                "b) Porque a internet sempre tem a verdade absoluta.",
+                                "c) Porque é divertido procurar informações na internet.",
+                                "d) Porque é mais rápido acreditar em tudo o que encontramos."
+                            ],
+                            "resposta": "0"
+                        },
+                    ]
+                }
+
             }
         }
 }
