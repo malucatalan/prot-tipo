@@ -1,59 +1,42 @@
 from cores import colorir
-import os
 import time
 from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
 import random
 import questionary
 from prompt_toolkit.styles import Style
-
-def limparTela():
-    os.system('cls')
-
-def mostrarTitulo(texto):
-    limparTela()
-    print(colorir("-" * 80, cor="magenta"))
-    print(colorir(texto.center(80), cor="magenta", estilo="bold"))
-    print(colorir("-" * 80, cor="magenta"))
-    print()
-
-def mostrarTextoLinhaQuebrada(texto):
-        inicio = 0
-        fim = 50
-        while inicio < len(texto):
-            print(texto[inicio:fim])
-            inicio += 50
-            fim += 50
+from func_secundarias import limparTela, mostrarTextoLinhaQuebrada, mostrarTitulo
 
 def selecaoMenuIdades():
-        estilo = Style([
-    ('pointer', 'fg:ansimagenta bold'),
-    ('question', 'fg:ansiblue bold'),
-    ('highlighted', 'fg:ansibrightred bold')])
-        
-        escolha= questionary.select(
-        " Selecione a faixa etária",
-        choices=[
-            questionary.Choice(
-                title=[('fg:ansigreen nobold', '5-6 anos')], 
-                value='1'
-            ),
-            questionary.Choice(
-                title=[('fg:ansiyellow nobold','7-8 anos')],
-                value='2'
-            ),
-            questionary.Choice(
-                title=[('fg:ansicyan nobold', '9-10 anos')],
-                value='3'
-            ),
-            questionary.Choice(
-                title=[('fg:ansired nobold', 'Sair')],
-                value='0'
-            ),],instruction=" ",qmark=" ",style=estilo).ask()
-        
-        return escolha
+    """selecaoMenuIdades solicita a seleção da faixa etária."""
+    estilo = Style([
+        ('pointer', 'fg:ansimagenta bold'),
+        ('question', 'fg:ansiblue bold'),
+        ('highlighted', 'fg:ansibrightred bold')])
+    
+    escolha= questionary.select(
+    " Selecione a faixa etária",
+    choices=[
+        questionary.Choice(
+            title=[('fg:ansigreen nobold', '5-6 anos')], 
+            value='1'
+        ),
+        questionary.Choice(
+            title=[('fg:ansiyellow nobold','7-8 anos')],
+            value='2'
+        ),
+        questionary.Choice(
+            title=[('fg:ansicyan nobold', '9-10 anos')],
+            value='3'
+        ),
+        questionary.Choice(
+            title=[('fg:ansired nobold', 'Sair')],
+            value='0'
+        ),],instruction=" ",qmark=" ",style=estilo).ask()
+    
+    return escolha
 def menuPrincipal():
-
+    """menuPrincipal apresenta a parte inicial do programa."""
     mostrarTitulo('''
    _____ ____  _____  ______   ______    _____ ____  _   _ _______       
   / ____/ __ \|  __ \|  ____| |  ____|  / ____/ __ \| \ | |__   __|/\    
@@ -89,8 +72,10 @@ def menuPrincipal():
         ),],instruction=" ",qmark=" ",style=estilo).ask()
     
     return escolha  
-
 def menuMatematica():
+    """menuMatematica gerencia quais conteúdos serão apresentados,
+     de acordo com a faixa etária selecionada."""
+    
     while True:
         mostrarTitulo("MATEMÁTICA DIVERTIDA")
         opcao=selecaoMenuIdades()
@@ -103,8 +88,10 @@ def menuMatematica():
             menuConteudosExercicios("matematica", "9-10")
         elif opcao == "0":
             main()
-
 def menuInformatica():
+    """menuInformatica gerencia quais conteúdos serão apresentados,
+     de acordo com a faixa etária selecionada."""
+    
     while True:
         mostrarTitulo("INFORMÁTICA DIVERTIDA")
         opcao = selecaoMenuIdades()
@@ -117,21 +104,24 @@ def menuInformatica():
         elif opcao == "3":
             menuConteudosExercicios("informatica", "9-10")
         elif opcao == "0":
-            main()
-        
+            main() 
+def sobreSistema():
+    """sobreSistema apresenta o sistema."""   
 
-def sobreSistema():     
-    def menuSobreSistema(pagina):
+    def menuSobreSistema(indice_pagina):
+        """menuSobreSistema recebe o indice da página atual e imprime o número da página. 
+        Por fim, retorna as opções selecionadas."""
 
         estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
         ('highlighted', 'fg:ansibrightred bold')])
 
-        amostra_pagina = pagina + 1
+        ultima_pagina = len(conjunto_paragrafos)
+        pagina_texto = indice_pagina + 1
         print()
-        print(colorir(f"\t\tPágina {amostra_pagina}", cor="black", fundo="bg_white"))
+        print(colorir(f"Página {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white").center(92))
 
-        if amostra_pagina > 1:
+        if pagina_texto > 1:
             opcao = questionary.select(
         " ",
         choices=[
@@ -162,32 +152,25 @@ def sobreSistema():
             ),
             
         ],instruction=" ",qmark=" ",style=estilo).ask()
-
         return opcao
-    
-    lista_paragrafos = list(TEXTOSOBRE)
-    n_pagina = 0
-    ultima_pagina = len(lista_paragrafos)
+    def paginar(paragrafos:list[str], indice_paragrafo=0):
+        """paginar pagina cada parágrafo de um conjunto de Strings."""
 
-    while True:
-
-        def paginas(pagina):
-            while pagina < ultima_pagina:
-                mostrarTitulo("Sobre o Sistema")
-                if pagina in [n for n in range(0, ultima_pagina)]:
-                    mostrarTextoLinhaQuebrada(lista_paragrafos[pagina])
-                prox_anterior = menuSobreSistema(pagina)
-                if prox_anterior == '1' and pagina > 0:
-                    pagina -= 1
-                    paginas(pagina)
-                elif prox_anterior == "0":
-                    main()
-                    return
-                else:
-                    pagina += 1
-        paginas(n_pagina)
-
+        while indice_paragrafo < len(paragrafos):
+            mostrarTitulo("Sobre o Sistema")
+            mostrarTextoLinhaQuebrada(paragrafos[indice_paragrafo], 80)
+            opcao = menuSobreSistema(indice_paragrafo)
+            if opcao == '1' and indice_paragrafo > 0:
+                paginar(paragrafos, indice_paragrafo - 1)
+            elif opcao == "0":
+                main()
+                return
+            indice_paragrafo += 1
+    conjunto_paragrafos = list(TEXTOSOBRE)
+    paginar(conjunto_paragrafos)
 def menuConteudosExercicios(tema, idade):
+   """menuConteudosExercicios solicita a modalidade de aprendizado."""
+
    while True:
         mostrarTitulo(f"{tema.upper()} PARA {idade} ANOS")
         estilo = Style([
@@ -211,21 +194,22 @@ def menuConteudosExercicios(tema, idade):
             ),],instruction=" ",qmark=" ",style=estilo).ask()
         
         if escolha == "1":
-            verConteudos(tema, idade)
+            mostrarConteudos(tema, idade)
         elif escolha == "2":
-            praticarExercicio(tema, idade) 
+            mostrarExercicios(tema, idade)
         elif escolha  == "0":
             break
+def apresentarConteudo(tema, idade, conteudo):
+    """conteudoCompleto apresenta o conteúdo selecionado"""
 
-def conteudoCompleto(tema, idade, conteudo):
     dadosConteudo = CONTEUDOS[tema][idade][conteudo]
     limparTela()
     mostrarTitulo(f"{conteudo.upper()}")
     print(colorir(dadosConteudo["texto"],cor="yellow"))
     print()
     input(colorir("Pressione Enter para voltar", cor="cyan"))
-
-def verConteudos(tema, idade):
+def mostrarConteudos(tema, idade):
+    """verConteudos apresenta os conteúdos disponíveis."""
 
     while True:
         mostrarTitulo(f"CONTEÚDOS DE {tema.upper()} PARA {idade} ANOS")
@@ -269,10 +253,10 @@ def verConteudos(tema, idade):
         else:
             indice_selecionado = int(opcao_valor)
             nome_conteudo_escolhido = conteudos[indice_selecionado][0] 
-            conteudoCompleto(tema, idade, nome_conteudo_escolhido)
-                
+            apresentarConteudo(tema, idade, nome_conteudo_escolhido)            
+def mostrarExercicios(tema, idade):
+    """mostrarExercicio apresenta os exercícios disponíveis."""
 
-def praticarExercicio(tema, idade):
     while True:
         mostrarTitulo(f"EXERCÍCIOS DE {tema.upper()}")
         
@@ -315,11 +299,9 @@ def praticarExercicio(tema, idade):
         else:
             indice_selecionado = int(opcao_valor)
             nome_conteudo_escolhido = conteudosComexercício[indice_selecionado][0] 
-            mostrarExercicios(tema, idade, nome_conteudo_escolhido)
-                
-
-def mostrarExercicios(tema, idade, nome_do_conteudo):
-    
+            praticarExercicio(tema, idade, nome_conteudo_escolhido)     
+def praticarExercicio(tema, idade, nome_do_conteudo):
+    """praticarExercicio gerencia o exercício selecionado."""
 
     estilo_menu = Style([ 
             ('pointer', 'fg:ansimagenta bold'),
@@ -386,7 +368,6 @@ def mostrarExercicios(tema, idade, nome_do_conteudo):
 
     print()
     input(colorir("Pressione Enter para voltar...", cor="yellow"))
-    
 def main():
     while True:
         opcao = menuPrincipal()
@@ -396,5 +377,7 @@ def main():
             menuInformatica()
         elif opcao == "3":
             sobreSistema()
+        elif opcao == "0":
+            exit()
 main()
 

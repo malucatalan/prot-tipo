@@ -1,26 +1,22 @@
-TEXTOSOBRE = ("Code e Conta é uma plataforma educacional para crianças, "
-        "que tem o objetivo de tornar o aprendizado de matemática "
-        "e informática mais acessível, divertido e lúdico, "
-        "estimulando a criatividade e curiosidade das crianças.",
+TEXTOSOBRE = (" O algoritmo de Code e Conta funciona de forma intuitiva"
+        " de forma a facilitar o uso infaltil."
+        " Como cada pessoa tem uma forma diferente para aprender,"
+        " através de menus, é possível navegar a níveis mais baixos"
+        " para especificar os dados e apresentar um conteúdo mais específico para a criança.",
         
-        "Com o crescente uso e avanço da tecnologia, "
-        "onde as crianças já nascem em uma era digital, "
-        "é de suma importância o domínio de atividades "
-        "tecnológicas e do pensamento lógico. "
-        "As crianças de hoje são nativas digitais, "
-        "por isso é essencial que elas aprendam desde "
-        "cedo a usar a tecnologia de forma consciente, "
-        "criativa, crítica e responsável.",
+        " Estes menus solicitam a requisição do usuário e gerenciam "
+        "o que será apresentado do conteudo, que é armazenado no dicionário CONTEUDOS. "
+        "Neste dicionário, existem outros que armazenam o conteúdo e exercícios a ser solicitado.",
 
-        "De acordo com o PISA (Programa Internacional de Avaliação de Estudantes) "
-        "no Brasil, mais de 70% das crianças e adolescentes, enfrentam dificuldades "
-        "básicas em matemática. Uma análise do PISA 2022 revelou que apenas 3% dos "
-        "estudantes brasileiros de baixo nível socioeconômico, têm aprendizado adequado em matemática.",
+        " Assim, de forma colorida e eficiente, nosso projeto garante a solidificação do aprendizado da criança.",
 
-        "A partir desses dados, nossa equipe constatou a necessidade de uma plataforma que "
-        "busque ensinar de maneira democrática e divertida, acentuando o interesse no "
-        "aprendizado, tendo como meta auxiliar no aumento do conhecimento de matemática e "
-        "informática de forma gratuita e acessível.",
+        "COMO UTILIZAR".center(80),
 
-        "COMO FUNCIONA O SISTEMA"
+        " Ao abrir o programa, haverá o menu de opções, onde haverá as duas matérias. "
+        "Selecione a devida opção para acessar o menu de idades.",
+
+        " No menu de idades, selecione a faixa etária da criança e continue.",
+
+        " Aqui é o contedosExercicios, onde você pode selecionar Ver Conteúdos para acessar o conceito do tema, "
+        "enquanto, em Praticar Exercícios, você pode praticar o que foi apresentado em Ver Conteúdos."
         )
