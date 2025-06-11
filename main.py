@@ -64,10 +64,6 @@ def menuPrincipal():
         questionary.Choice(
             title=[('fg:ansiyellow nobold', 'Sobre o Sistema')],
             value='3'
-        ),
-        questionary.Choice(
-            title=[('fg:ansired nobold', 'Sair')],
-            value='0'
         ),],instruction=" ",qmark=" ",style=estilo).ask()
     
     return escolha  
