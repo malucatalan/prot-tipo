@@ -2,7 +2,6 @@ from cores import colorir
 import time
 from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
-import random
 import questionary
 from prompt_toolkit.styles import Style
 from func_secundarias import limparTela, mostrarTextoLinhaQuebrada, mostrarTitulo
@@ -377,7 +376,5 @@ def main():
             menuInformatica()
         elif opcao == "3":
             sobreSistema()
-        elif opcao == "0":
-            exit()
 main()
 
