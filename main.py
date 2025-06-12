@@ -43,9 +43,7 @@ def menuPrincipal():
  | |   | |  | | |  | | |__    | |__    | |   | |  | |  \| |  | |  /  \   
  | |   | |  | | |  | |  __|   |  __|   | |   | |  | | . ` |  | | / /\ \  
  | |____ |__| | |__| | |____  | |____  | |____ |__| | |\  |  | |/ ____ \ 
-  \_____\____/|_____/|______| |______|  \_____\____/|_| \_|  |_/_/    \_|
-                                                                         
-                                                                         
+  \_____\____/|_____/|______| |______|  \_____\____/|_| \_|  |_/_/    \_|                                                                  
 ''')
     estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
@@ -70,7 +68,6 @@ def menuPrincipal():
             title=[('fg:ansired nobold', 'Sair')],
             value='0'
         ),],instruction=" ",qmark=" ",style=estilo).ask()
-    
     return escolha  
 def menuMatematica():
     """menuMatematica gerencia quais conteúdos serão apresentados,
@@ -110,7 +107,7 @@ def sobreSistema():
 
     def menuSobreSistema(indice_pagina):
         """menuSobreSistema recebe o indice da página atual e imprime o número da página. 
-        Por fim, retorna as opções selecionadas."""
+        Por fim, retorna a opção selecionada."""
 
         estilo = Style([
         ('pointer', 'fg:ansimagenta bold'),
