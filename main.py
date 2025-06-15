@@ -153,10 +153,10 @@ def sobreSistema():
             mostrarTitulo("Sobre o Sistema")
             mostrarTextoLinhaQuebrada(paragrafos[indice_paragrafo], 80)
             opcao = menuSobreSistema(indice_paragrafo)
-            if opcao == '1' and indice_paragrafo > 0:
+            if opcao == '1':
                 paginar(paragrafos, indice_paragrafo - 1)
             elif opcao == "0":
-                return main()
+                break
             else:
                 indice_paragrafo += 1
         return main()
