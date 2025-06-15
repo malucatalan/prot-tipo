@@ -122,13 +122,13 @@ CONTEUDOS = {
                     },
                     {
                         "pergunta": f'10 - 5',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"5"
+                        "alternativas":["a)10","b)5","c)12","d)15","E)16"],
+                        "resposta":"1"
                     },
                     {
                         "pergunta": f'13-7',
-                        "alternativas":["a)10","b)7","c)14","d)9","E)6"],
-                        "resposta":"6"
+                        "alternativas":["a)20","b)7","c)6","d)4","E)12"],
+                        "resposta":"2"
                     },
                 ],
             },
@@ -219,7 +219,7 @@ CONTEUDOS = {
                     {
                         "pergunta": "9 x 7",
                         "alternativas":["a)63","b)70","c)140"],
-                        "resposta": "63"
+                        "resposta": "0"
                     },
                 ],
             },
@@ -361,7 +361,7 @@ CONTEUDOS = {
                     {
                         "pergunta":"50 / 5",
                         "alternativas":["a)50","b)45","c)10","d)5","E)12"],
-                        "resposta": "3"
+                        "resposta": "2"
                     },
                     {
                         "pergunta":"36 / 6",
@@ -371,7 +371,7 @@ CONTEUDOS = {
                     {
                         "pergunta":"72 / 8",
                         "alternativas":["a)10","b)7","c)8","d)9","E)6"],
-                        "resposta":"2"
+                        "resposta":"3"
                     }
                 ]
             },
@@ -401,7 +401,7 @@ CONTEUDOS = {
                     {
                         "pergunta": "Manuela vende uma limonada por 2 reais, José por 4, Maria por 8. Por quanto Júlia vende a sua limonada?",
                         "alternativas": ["a)20","b)16","c)10","d)8","E)4"],
-                        "respostas": "1"
+                        "resposta": "1"
                     },
                 ],
             },
@@ -543,7 +543,7 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                         {
                             "pergunta": "📅 Como organizar seu dia para estudar? 📚☀️",
                             "alternativas": [
-                                "a) ☕ Toma café --> 🛋️ Descansa --> 📖 Estuda --> ⏰ Acorda"
+                                "a) ☕ Toma café --> 🛋️ Descansa --> 📖 Estuda --> ⏰ Acorda",
                                 "b) 📖 Estuda --> ⏰ Acorda --> ☕ Toma café --> 🛋️ Descansa",
                                 "c) 🛋️ Descansa --> ☕ Toma café --> 📖 Estuda --> ⏰ Acorda",
                                 "d) ⏰ Acorda --> ☕ Toma café --> 📖 Estuda --> 🛋️ Descansa"
@@ -604,12 +604,12 @@ Você quer comprar um presente para a sua mae e para o seu pai, mas você só po
                         },
                         {   
                             "pergunta": "Complete a sequência:\nA, C, E, G, ___ --> Qual letra vem agora?",
-                            "alternativas": ["a) H", "b) I", "c) J", "d) I"],
+                            "alternativas": ["a) H", "b) I", "c) J", "d) K"],
                             "resposta": "1"
                         },
                         {   
                             "pergunta": "Observe a sequência:\n🐶 🐱 🐶 🐱 🐶 🐸 🐶 🐱\n👉 Qual figura está fora do padrão?",
-                            "alternativas": ["a) 🐶", "b) 🐱", "c) 🐸", "d) 🐶"],
+                            "alternativas": ["a) 🐶", "b) 🐱", "c) 🐸"],
                             "resposta": "2"
                         },
                         {

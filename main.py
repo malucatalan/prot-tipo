@@ -2,7 +2,6 @@ from cores import colorir
 import time
 from texto_menu_sobre import TEXTOSOBRE
 from conteudos import CONTEUDOS
-import random
 import questionary
 from prompt_toolkit.styles import Style
 from func_secundarias import limparTela, mostrarTextoLinhaQuebrada, mostrarTitulo
@@ -63,10 +62,6 @@ def menuPrincipal():
         questionary.Choice(
             title=[('fg:ansiyellow nobold', 'Sobre o Sistema')],
             value='3'
-        ),
-        questionary.Choice(
-            title=[('fg:ansired nobold', 'Sair')],
-            value='0'
         ),],instruction=" ",qmark=" ",style=estilo).ask()
     return escolha  
 def menuMatematica():
@@ -150,6 +145,7 @@ def sobreSistema():
             
         ],instruction=" ",qmark=" ",style=estilo).ask()
         return opcao
+
     def paginar(paragrafos:list[str], indice_paragrafo=0):
         """paginar pagina cada parágrafo de um conjunto de Strings."""
 
@@ -160,10 +156,11 @@ def sobreSistema():
             if opcao == '1' and indice_paragrafo > 0:
                 paginar(paragrafos, indice_paragrafo - 1)
             elif opcao == "0":
-                main()
-                return
-            indice_paragrafo += 1
-    conjunto_paragrafos = list(TEXTOSOBRE)
+                return main()
+            else:
+                indice_paragrafo += 1
+        return main()
+    conjunto_paragrafos = TEXTOSOBRE
     paginar(conjunto_paragrafos)
 def menuConteudosExercicios(tema, idade):
    """menuConteudosExercicios solicita a modalidade de aprendizado."""
@@ -374,7 +371,5 @@ def main():
             menuInformatica()
         elif opcao == "3":
             sobreSistema()
-        elif opcao == "0":
-            exit()
 main()
 
