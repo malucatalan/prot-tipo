@@ -108,7 +108,7 @@ def sobreSistema():
         ('pointer', 'fg:ansimagenta bold'),
         ('highlighted', 'fg:ansibrightred bold')])
 
-        ultima_pagina = len(conjunto_paragrafos)
+        ultima_pagina = len(TEXTOSOBRE)
         pagina_texto = indice_pagina + 1
         print()
         print(colorir(f"Página {pagina_texto} de {ultima_pagina}", cor="black", fundo="bg_white").center(92))
@@ -160,8 +160,7 @@ def sobreSistema():
             else:
                 indice_paragrafo += 1
         return main()
-    conjunto_paragrafos = TEXTOSOBRE
-    paginar(conjunto_paragrafos)
+    paginar(TEXTOSOBRE)
 def menuConteudosExercicios(tema, idade):
    """menuConteudosExercicios solicita a modalidade de aprendizado."""
 
